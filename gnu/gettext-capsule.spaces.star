@@ -6,7 +6,7 @@ M4 capsule
 
 load("//@sdk/star/spaces-env.star", "spaces_working_env")
 load(
-    "gnu.star",
+    "//gnu.star",
     "gnu_add_autotools_capsule",
     "gnu_add_checkout_and_run",
 )
