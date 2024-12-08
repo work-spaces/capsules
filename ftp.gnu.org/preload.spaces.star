@@ -6,7 +6,7 @@ checkout.add_repo(
     rule = {"name": "@sdk"},
     repo = {
         "url": "https://github.com/work-spaces/sdk",
-        "rev": "4d5d7992891d99bb15139d91397e8d6f730212dc",
+        "rev": "4f6e6f1ae520f1627cf552dbdd2cb2a20b9112fc",
         "checkout": "Revision",
         "clone": "Blobless"
     }
@@ -20,32 +20,18 @@ Helper functions for GNU capsules
 load(
     "//@sdk/star/capsule.star",
     "capsule_add",
-    "capsule_checkout_define_dependency",
-    "capsule_dependency",
-    "capsule_get_install_path",
+    "capsule_add_workflow_repo",
 )
-
-load(
-    "//@sdk/star/checkout.star",
-    "checkout_add_repo",
-)
-
-load(
-    "//@sdk/star/gnu-autotools.star",
-    "gnu_add_configure_make_install_from_source",
-)
-
 
 def gnu_add_autotools_capsule():
     """
     Add the autotools capsule
     """
-    checkout_add_repo(
-        "@capsules/capsules",
+
+    capsule_add_workflow_repo(
+        "capsules",
         url = "https://github.com/work-spaces/capsules",
-        rev = "e71f689cfd1f793063f6bc1331ad2f90dde49dde",
-        clone = "Default",
-        is_evaluate_spaces_modules = False,
+        rev = "a2d7ba48a24eed157b706886d2368c07475f8c7e",
     )
 
     libtool2 = capsule_dependency("ftp.gnu.org", "libtool", "libtool", semver = "2")
@@ -55,45 +41,11 @@ def gnu_add_autotools_capsule():
     capsule_add(
         "autotools_capsule",
         required = [libtool2, automake1, autoconf2],
-        scripts = ["capsules/preload", "capsules/gnu/autotools-capsule"],
+        scripts = ["capsules/ftp.gnu.org/preload", "capsules/ftp.gnu.org/autotools-capsule"],
         deps = ["@capsules/capsules"],
         prefix = "sysroot",
     )
 
-def gnu_define_dependency(capsule_name, owner, repo, version):
-    capsule_checkout_define_dependency(
-        "{{}}_info".format(capsule_name),
-        capsule_name = capsule_name,
-        domain = "ftp.gnu.org",
-        owner = owner,
-        repo = repo,
-        version = version,
-    )
-
-def gnu_add_checkout_and_run(capsule_name, owner, repo, version, configure_args = []):
-    """
-    Add the checkout and run if the install path does not exist
-
-    Args:
-        capsule_name: The name of the capsule
-        owner: The owner of the repository
-        repo: The repository name
-        version: The version of the repository
-    """
-
-    gnu_define_dependency(capsule_name, owner, repo, version)
-
-    install_path = capsule_get_install_path(capsule_name)
-    if install_path != None:
-
-        gnu_add_configure_make_install_from_source(
-            "{{}}_from_source".format(capsule_name),
-            owner,
-            repo,
-            version,
-            install_path = install_path,
-            configure_args = configure_args,
-        )
 '''
 
 checkout.add_asset(
