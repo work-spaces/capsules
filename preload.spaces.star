@@ -30,6 +30,11 @@ load(
     "checkout_add_repo",
 )
 
+load(
+    "//@sdk/star/gnu.star",
+    "gnu_add_configure_make_install_from_source",
+)
+
 
 def gnu_add_autotools_capsule():
     """
