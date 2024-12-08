@@ -9,6 +9,7 @@ Helper functions for GNU capsules
 
 load(
     "//@sdk/star/capsule.star",
+    "capsule_dependency",
     "capsule_add",
     "capsule_add_workflow_repo",
 )
