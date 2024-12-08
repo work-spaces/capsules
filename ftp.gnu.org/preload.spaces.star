@@ -22,7 +22,7 @@ def gnu_add_autotools_capsule():
     capsule_add_workflow_repo(
         "capsules",
         url = "https://github.com/work-spaces/capsules",
-        rev = "a2d7ba48a24eed157b706886d2368c07475f8c7e",
+        rev = "c0cc9714cf05ee026b62f4c8398b07a15c5456a5",
     )
 
     libtool2 = capsule_dependency("ftp.gnu.org", "libtool", "libtool", semver = "2")
@@ -51,7 +51,7 @@ checkout.add_repo(
     rule = {"name": "@sdk"},
     repo = {
         "url": "https://github.com/work-spaces/sdk",
-        "rev": "c5f06c2b42fad5ca6a06c1e4cc4a6e6db402fbde",
+        "rev": "5276d6f76181becc82fab0c2831c085f6fe88619",
         "checkout": "Revision",
         "clone": "Blobless"
     }
