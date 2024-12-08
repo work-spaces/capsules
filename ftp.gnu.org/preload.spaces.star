@@ -2,16 +2,6 @@
 Preload script capsules.
 """
 
-checkout.add_repo(
-    rule = {"name": "@sdk"},
-    repo = {
-        "url": "https://github.com/work-spaces/sdk",
-        "rev": "4f6e6f1ae520f1627cf552dbdd2cb2a20b9112fc",
-        "checkout": "Revision",
-        "clone": "Blobless"
-    }
-)
-
 gnu_star = '''
 """
 Helper functions for GNU capsules
@@ -53,5 +43,15 @@ checkout.add_asset(
     asset = {
         "content": gnu_star,
         "destination": "gnu.star",
+    }
+)
+
+checkout.add_repo(
+    rule = {"name": "@sdk"},
+    repo = {
+        "url": "https://github.com/work-spaces/sdk",
+        "rev": "97932b461f7c62c01a0cded00d9dd4bcefa921de",
+        "checkout": "Revision",
+        "clone": "Blobless"
     }
 )
