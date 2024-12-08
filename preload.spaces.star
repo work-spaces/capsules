@@ -14,7 +14,7 @@ checkout.add_repo(
 
 gnu_star = '''
 """
-Helper functions for GNU capules
+Helper functions for GNU capsules
 """
 
 load(
@@ -70,7 +70,7 @@ def gnu_define_dependency(capsule_name, owner, repo, version):
         version = version,
     )
 
-def gnu_add_checkout_and_run(capsule_name, owner, repo, version):
+def gnu_add_checkout_and_run(capsule_name, owner, repo, version, configure_args = []):
     """
     Add the checkout and run if the install path does not exist
 
@@ -92,6 +92,7 @@ def gnu_add_checkout_and_run(capsule_name, owner, repo, version):
             repo,
             version,
             install_path = install_path,
+            configure_args = configure_args,
         )
 '''
 
