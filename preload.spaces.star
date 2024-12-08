@@ -31,7 +31,7 @@ load(
 )
 
 load(
-    "//@sdk/star/gnu.star",
+    "//@sdk/star/gnu-autotools.star",
     "gnu_add_configure_make_install_from_source",
 )
 
