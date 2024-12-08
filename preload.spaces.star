@@ -55,9 +55,9 @@ def gnu_add_autotools_capsule():
         prefix = "sysroot",
     )
 
-def gnu_define_depedency(capsule_name, owner, repo, version):
+def gnu_define_dependency(capsule_name, owner, repo, version):
     capsule_checkout_define_dependency(
-        "{}_info".format(capsule_name),
+        "{{}}_info".format(capsule_name),
         capsule_name = capsule_name,
         domain = "ftp.gnu.org",
         owner = owner,
@@ -82,7 +82,7 @@ def gnu_add_checkout_and_run(capsule_name, owner, repo, version):
     if install_path != None:
 
         gnu_add_configure_make_install_from_source(
-            "{}_from_source".format(capsule_name),
+            "{{}}_from_source".format(capsule_name),
             owner,
             repo,
             version,
