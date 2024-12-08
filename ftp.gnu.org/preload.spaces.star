@@ -51,7 +51,7 @@ checkout.add_repo(
     rule = {"name": "@sdk"},
     repo = {
         "url": "https://github.com/work-spaces/sdk",
-        "rev": "6ed1d32f03d4b3bd92bdbd2b3a5271cc04b54585",
+        "rev": "eab8c53fab6bf81f976675559816c7ab621c4c86",
         "checkout": "Revision",
         "clone": "Blobless"
     }
