@@ -43,7 +43,7 @@ def gnu_add_autotools_capsule():
     checkout_add_repo(
         "@capsules/capsules",
         url = "https://github.com/work-spaces/capsules",
-        rev = "5e8c9f6b02e789d1a6946ee2a1505e8ae0e2dfa4",
+        rev = "e71f689cfd1f793063f6bc1331ad2f90dde49dde",
         clone = "Default",
         is_evaluate_spaces_modules = False,
     )
