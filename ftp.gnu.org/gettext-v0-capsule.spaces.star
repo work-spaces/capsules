@@ -12,7 +12,7 @@ load(
 )
 
 load(
-    "//@sdk/star/spaces.star",
+    "//@sdk/star/spaces-sdk.star",
     "spaces_add",
 )
 
