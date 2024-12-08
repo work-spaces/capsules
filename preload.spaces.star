@@ -11,3 +11,13 @@ checkout.add_repo(
         "clone": "Blobless"
     }
 )
+
+gnu_star = fs.read_file_to_string("gnu/gnu.star")
+
+checkout.add_asset(
+    rule = {"name": "gnu_star"},
+    asset = {
+        "content": gnu_star,
+        "destination": "gnu.star",
+    }
+)
