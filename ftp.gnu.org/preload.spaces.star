@@ -22,7 +22,7 @@ def gnu_add_autotools_capsule():
     checkout_capsules_rule_name = capsule_add_workflow_repo(
         "capsules",
         url = "https://github.com/work-spaces/capsules",
-        rev = "c0cc9714cf05ee026b62f4c8398b07a15c5456a5",
+        rev = "1c5398a24070e8b279f73b6e08843aaa53d8f661",
     )
 
     libtool2 = capsule_dependency("ftp.gnu.org", "libtool", "libtool", semver = "2")
