@@ -17,7 +17,7 @@ spaces_add("spaces0", "v0.11.4")
 
 checkout_capsules_rule_name = gnu_add_autotools_capsule()
 
-#libiconv depends on gettext
+#readline depends on gettext
 gettext0 = capsule_dependency("ftp.gnu.org", "gettext", "gettext", semver = "0")
 
 prefix = capsule_get_prefix("readline")
