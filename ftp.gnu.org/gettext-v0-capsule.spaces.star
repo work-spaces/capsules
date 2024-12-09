@@ -11,15 +11,8 @@ load(
     "gnu_add_autotools_capsule",
 )
 
-load(
-    "//@sdk/star/spaces-sdk.star",
-    "spaces_add",
-)
-
-spaces_add(
-    "spaces0",
-    version = "v0.11.4",
-)
+load("//@sdk/star/spaces-sdk.star", "spaces_add")
+spaces_add("spaces0", "v0.11.4")
 
 gnu_add_autotools_capsule()
 

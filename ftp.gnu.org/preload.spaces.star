@@ -18,6 +18,9 @@ load(
 def gnu_add_autotools_capsule():
     """
     Add the autotools capsule
+
+    Returns:
+        The name of the checkout capsules rule
     """
 
     checkout_capsules_rule_name = capsule_add_workflow_repo_as_soft_link("capsules")
@@ -33,6 +36,8 @@ def gnu_add_autotools_capsule():
         deps = [checkout_capsules_rule_name],
         prefix = "sysroot",
     )
+
+    return checkout_capsules_rule_name
 
 '''
 
