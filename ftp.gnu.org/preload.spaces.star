@@ -19,7 +19,7 @@ def gnu_add_autotools_capsule():
     Add the autotools capsule
     """
 
-    capsule_add_workflow_repo(
+    checkout_capsules_rule_name = capsule_add_workflow_repo(
         "capsules",
         url = "https://github.com/work-spaces/capsules",
         rev = "c0cc9714cf05ee026b62f4c8398b07a15c5456a5",
@@ -32,8 +32,8 @@ def gnu_add_autotools_capsule():
     capsule_add(
         "autotools_capsule",
         required = [libtool2, automake1, autoconf2],
-        scripts = ["capsules/ftp.gnu.org/preload", "capsules/ftp.gnu.org/autotools-capsule"],
-        deps = ["@capsules/capsules"],
+        scripts = ["capsules/ftp.gnu.org/preload", "capsules/ftp.gnu.org/autotools-v2024-capsule"],
+        deps = [checkout_capsules_rule_name],
         prefix = "sysroot",
     )
 
@@ -51,7 +51,7 @@ checkout.add_repo(
     rule = {"name": "@sdk"},
     repo = {
         "url": "https://github.com/work-spaces/sdk",
-        "rev": "5276d6f76181becc82fab0c2831c085f6fe88619",
+        "rev": "6758b71eabe9ec52c7183319d36095583d9ac17c",
         "checkout": "Revision",
         "clone": "Blobless"
     }
