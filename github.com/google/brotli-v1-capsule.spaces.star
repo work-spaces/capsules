@@ -15,13 +15,16 @@ cmake_add(
     version = "v3.31.1",
 )
 
+version = "1.1.0"
+rev = "v{}".format(version)
+
 cmake_capsule_add_repo_checkout_and_run(
     capsule_name = "brotli",
     domain = "github.com",
     owner = "google",
     repo = "brotli",
-    rev = "v1.1.0",
-    version = "1.1.0",
+    rev = version,
+    version = rev,
     deploy_repo = "https://github.com/work-spaces/capsules",
 )
 

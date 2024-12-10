@@ -15,13 +15,16 @@ cmake_add(
     version = "v3.31.1",
 )
 
+version = "1.3.1"
+rev = "v{}".format(version)
+
 cmake_capsule_add_repo_checkout_and_run(
     capsule_name = "zlib",
     domain = "github.com",
     owner = "madler",
     repo = "zlib",
-    rev = "v1.3.1",
-    version = "1.3.1",
+    rev = rev,
+    version = version,
     deploy_repo = "https://github.com/work-spaces/capsules",
 )
 
