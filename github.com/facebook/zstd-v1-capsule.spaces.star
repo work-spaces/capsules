@@ -24,7 +24,7 @@ def build_zstd(capsule_from_source, install_path, args):
     checkout_rule = "{}_source".format(capsule_from_source)
     build_rule = "{}_build".format(capsule_from_source)
     checkout_add_repo(
-        capsule_from_source,
+        checkout_rule,
         url = "https://github.com/facebook/zstd",
         rev = args["rev"],
         clone = "Blobless",
