@@ -12,20 +12,21 @@ load("//@sdk/star/checkout.star", "checkout_add_repo")
 version = "1.5.5"
 rev = "v{}".format(version)
 
-def build_zstd(capsule_from_source, install_path):
+def build_zstd(capsule_from_source, install_path, args):
     """
     Build zstd from source
 
     Args:
         capsule_from_source: capsule name
         install_path: install path
+        args: arguments
     """
     checkout_rule = "{}_source".format(capsule_from_source)
     build_rule = "{}_build".format(capsule_from_source)
     checkout_add_repo(
         capsule_from_source,
         url = "https://github.com/facebook/zstd",
-        rev = rev,
+        rev = args["rev"],
         clone = "Blobless",
     )
 
@@ -55,7 +56,9 @@ capsule_add_checkout_and_run(
     version = version,
     deploy_repo = "https://github.com/work-spaces/capsules",
     build_function = build_zstd,
-    build_function_args = None,
+    build_function_args = {
+        "rev": rev,
+    },
 )
 
 spaces_working_env()
