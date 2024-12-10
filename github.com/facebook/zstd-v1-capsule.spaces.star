@@ -15,6 +15,9 @@ spaces_add("spaces0", "v0.11.4")
 version = "1.5.5"
 rev = "v{}".format(version)
 
+
+# Need to provide xz and lz4 as dependencies
+
 def build_zstd(capsule_from_source, install_path, args):
     """
     Build zstd from source
@@ -40,6 +43,11 @@ def build_zstd(capsule_from_source, install_path, args):
         working_directory = checkout_rule,
     )
 
+    # Building creates dependencies on system libraries xz and lz4 in /usr/local/opt
+
+    # The install prefix baked into the zstd library is /usr/local/lib
+    # but it needs to be the location in the spaces capsule in order to
+    # be re-locatable
     run_add_exec(
         capsule_from_source,
         command = "make",
