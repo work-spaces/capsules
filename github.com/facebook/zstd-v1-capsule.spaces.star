@@ -8,6 +8,9 @@ load("//@sdk/star/spaces-env.star", "spaces_working_env")
 load("//@sdk/star/capsule.star", "capsule_add_checkout_and_run")
 load("//@sdk/star/run.star", "run_add_exec")
 load("//@sdk/star/checkout.star", "checkout_add_repo")
+load("//@sdk/star/spaces-sdk.star", "spaces_add")
+
+spaces_add("spaces0", "v0.11.4")
 
 version = "1.5.5"
 rev = "v{}".format(version)
