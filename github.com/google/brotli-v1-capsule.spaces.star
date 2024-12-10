@@ -23,8 +23,8 @@ cmake_capsule_add_repo_checkout_and_run(
     domain = "github.com",
     owner = "google",
     repo = "brotli",
-    rev = version,
-    version = rev,
+    rev = rev,
+    version = version,
     deploy_repo = "https://github.com/work-spaces/capsules",
 )
 
