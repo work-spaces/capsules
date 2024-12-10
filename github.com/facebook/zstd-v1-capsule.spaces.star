@@ -52,7 +52,6 @@ capsule_add_checkout_and_run(
     domain = "github.com",
     owner = "facebook",
     repo = "zstd",
-    rev = rev,
     version = version,
     deploy_repo = "https://github.com/work-spaces/capsules",
     build_function = build_zstd,
