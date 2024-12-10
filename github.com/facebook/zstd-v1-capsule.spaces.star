@@ -52,7 +52,7 @@ def build_zstd(capsule_from_source, install_path, args):
     )
 
 capsule_add_checkout_and_run(
-    capsule_name = "zlib",
+    capsule_name = "zstd",
     domain = "github.com",
     owner = "facebook",
     repo = "zstd",
