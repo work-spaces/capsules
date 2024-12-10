@@ -17,7 +17,8 @@ cmake_capsule_add_repo_checkout_and_run(
     domain = "github.com",
     owner = "madler",
     repo = "zlib",
-    version = "v1.3.1",
+    rev = "v1.3.1",
+    version = "1.3.1",
     deploy_repo = "https://github.com/work-spaces/capsules",
 )
 
