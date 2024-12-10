@@ -6,8 +6,8 @@ zstd capsule
 
 load("//@sdk/star/spaces-env.star", "spaces_working_env")
 load("//@sdk/star/capsule.star", "capsule_add_checkout_and_run")
-load("//@sdk/star/run.star", "run_add_exec", "run_add_target")
-
+load("//@sdk/star/run.star", "run_add_exec")
+load("//@sdk/star/checkout.star", "checkout_add_repo")
 
 version = "1.5.5"
 rev = "v{}".format(version)
@@ -56,9 +56,7 @@ capsule_add_checkout_and_run(
     version = version,
     deploy_repo = "https://github.com/work-spaces/capsules",
     build_function = build_zstd,
-    build_function_args = None
+    build_function_args = None,
 )
 
 spaces_working_env()
-
-
