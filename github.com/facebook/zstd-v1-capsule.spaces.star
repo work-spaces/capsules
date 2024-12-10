@@ -6,12 +6,22 @@ zstd capsule
 
 load("//@sdk/star/spaces-env.star", "spaces_working_env")
 load("//@sdk/star/capsule.star", "capsule_add_checkout_and_run")
+load("//@sdk/star/run.star", "run_add_exec", "run_add_target")
 
 
 version = "1.5.5"
 rev = "v{}".format(version)
 
 def build_zstd(capsule_from_source, install_path):
+    """
+    Build zstd from source
+
+    Args:
+        capsule_from_source: capsule name
+        install_path: install path
+    """
+    checkout_rule = "{}_source".format(capsule_from_source)
+    build_rule = "{}_build".format(capsule_from_source)
     checkout_add_repo(
         capsule_from_source,
         url = "https://github.com/facebook/zstd",
@@ -20,18 +30,18 @@ def build_zstd(capsule_from_source, install_path):
     )
 
     run_add_exec(
-        "zstd_build",
+        build_rule,
         command = "make",
         args = ["-j{}".format(info.get_cpu_count())],
-        working_directory = capsule_from_source,
+        working_directory = checkout_rule,
     )
 
     run_add_exec(
-        "zstd_install",
+        capsule_from_source,
         command = "make",
         args = ["install"],
-        working_directory = capsule_from_source,
-        deps = ["zstd_build"],
+        working_directory = checkout_rule,
+        deps = [build_rule],
         env = {
             "PREFIX": install_path,
         },

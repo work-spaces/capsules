@@ -1,5 +1,0 @@
-"""
-
-Depends on libiconv
-
-"""

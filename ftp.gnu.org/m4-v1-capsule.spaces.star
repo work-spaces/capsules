@@ -10,15 +10,8 @@ load(
     "//gnu.star",
     "gnu_add_autotools_capsule",
 )
-load(
-    "//@sdk/star/gh.star",
-    "gh_add",
-)
-
-gh_add(
-    "gh2",
-    version = "v2.62.0",
-)
+load("//@sdk/star/spaces-sdk.star", "spaces_add")
+spaces_add("spaces0", "v0.11.4")
 
 gnu_add_autotools_capsule()
 
