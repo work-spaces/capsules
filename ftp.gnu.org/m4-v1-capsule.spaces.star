@@ -4,21 +4,20 @@ GNU capsule
 
 """
 
-load("//@sdk/star/spaces-env.star", "spaces_working_env")
-load("//@sdk/star/gnu.star", "gnu_capsule_add_checkout_and_run")
+load("//@sdk/star/gnu.star", "gnu_capsule_add_checkout_and_run", "gnu_capsule")
 load(
     "//gnu.star",
     "gnu_add_autotools_capsule",
 )
-load("//@sdk/star/spaces-sdk.star", "spaces_add")
-spaces_add("spaces0", "v0.11.4")
 
 gnu_add_autotools_capsule()
 
+source = "m4"
+
 gnu_capsule_add_checkout_and_run(
-    capsule_name = "m4",
-    deploy_repo = "https://github.com/work-spaces/capsules",
+    name = source,
+    capsule = gnu_capsule(source),
+    oras_url = "ghcr.io/work-spaces",
     version = "1.4.19",
 )
 
-spaces_working_env()

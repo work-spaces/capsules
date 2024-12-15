@@ -23,6 +23,9 @@ cmake_capsule_add_archive_checkout_and_run(
     version = version,
     source_directory = "xz-{}".format(version),
     deploy_repo = "https://github.com/work-spaces/capsules",
+    configure_args = [
+        "-DBUILD_SHARED_LIBS=ON",
+    ]
 )
 
 spaces_working_env()

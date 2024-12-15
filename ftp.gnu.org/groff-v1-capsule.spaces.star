@@ -4,21 +4,16 @@ GNU capsule
 
 """
 
-load("//@sdk/star/spaces-env.star", "spaces_working_env")
 load("//@sdk/star/gnu.star", "gnu_capsule_add_checkout_and_run")
 load(
     "//gnu.star",
     "gnu_add_autotools_capsule",
 )
-load("//@sdk/star/spaces-sdk.star", "spaces_add")
-spaces_add("spaces0", "v0.11.4")
 
 gnu_add_autotools_capsule()
 
 gnu_capsule_add_checkout_and_run(
     capsule_name = "groff",
-    deploy_repo = "https://github.com/work-spaces/capsules",
+    oras_url = "ghrc.io/work-spaces",
     version = "1.23.0",
 )
-
-spaces_working_env()

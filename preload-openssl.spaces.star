@@ -100,6 +100,6 @@ checkout.add_repo(
         "url": "https://github.com/work-spaces/sdk",
         "rev": "2edbcf8a5f04eb227c8ab89fb103258745c43890",
         "checkout": "Revision",
-        "clone": "Blobless"
+        "clone": "Worktree"
     }
 )
