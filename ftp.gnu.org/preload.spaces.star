@@ -25,7 +25,7 @@ def gnu_add_autotools_capsule():
     """
 
     spaces_add("spaces0", "v0.11.4")
-    spaces_working_env()
+    env_rule = spaces_working_env()
 
     checkout_capsules_rule_name = capsule_add_workflow_repo_as_soft_link("capsules")
 
@@ -37,7 +37,7 @@ def gnu_add_autotools_capsule():
         "autotools",
         required = [libtool2, automake1, autoconf2],
         scripts = ["capsules/ftp.gnu.org/preload", "capsules/ftp.gnu.org/autotools-v2024-capsule"],
-        deps = [checkout_capsules_rule_name],
+        deps = [checkout_capsules_rule_name, env_rule],
         prefix = "sysroot",
     )
 
