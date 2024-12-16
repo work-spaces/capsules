@@ -25,7 +25,7 @@ cmake_capsule_add_repo_checkout_and_run(
     repo = "zlib",
     rev = rev,
     version = version,
-    deploy_repo = "https://github.com/work-spaces/capsules",
+    oras_url = "ghcr.io/work-spaces",
 )
 
 spaces_working_env()

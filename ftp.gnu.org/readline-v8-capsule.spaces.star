@@ -26,6 +26,6 @@ capsule_checkout(
 
 gnu_capsule_add_checkout_and_run(
     capsule_name = "readline",
-    deploy_repo = "https://github.com/work-spaces/capsules",
+    oras_url = "ghcr.io/work-spaces",
     version = "8.2",
 )

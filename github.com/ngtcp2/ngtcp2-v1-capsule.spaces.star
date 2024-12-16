@@ -24,7 +24,7 @@ cmake_capsule_add_repo_checkout_and_run(
     repo = capsule_name,
     rev = rev,
     version = version,
-    deploy_repo = "https://github.com/work-spaces/capsules",
+    oras_url = "ghcr.io/work-spaces",
     # need submodules
 )
 

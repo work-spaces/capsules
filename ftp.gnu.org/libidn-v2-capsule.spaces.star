@@ -14,6 +14,6 @@ gnu_add_autotools_capsule()
 
 gnu_capsule_add_checkout_and_run(
     capsule_name = "libidn",
-    deploy_repo = "https://github.com/work-spaces/capsules",
+    oras_url = "ghcr.io/work-spaces",
     version = "2.3.7",
 )

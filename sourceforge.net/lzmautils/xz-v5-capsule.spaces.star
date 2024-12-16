@@ -22,7 +22,7 @@ cmake_capsule_add_archive_checkout_and_run(
     filename = "xz-{}.tar.xz".format(version),
     version = version,
     source_directory = "xz-{}".format(version),
-    deploy_repo = "https://github.com/work-spaces/capsules",
+    oras_url = "ghcr.io/work-spaces",
     configure_args = [
         "-DBUILD_SHARED_LIBS=ON",
     ]

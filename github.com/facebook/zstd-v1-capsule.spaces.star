@@ -4,6 +4,7 @@ zstd capsule
 
 load("//@sdk/star/spaces-env.star", "spaces_working_env")
 load("//@sdk/star/cmake.star", "cmake_add", "cmake_capsule_add_repo_checkout_and_run")
+load("//@sdk/star/capsule.star", "capsule")
 load("//@sdk/star/spaces-sdk.star", "spaces_add")
 
 spaces_add("spaces0", "v0.11.4")
@@ -14,15 +15,14 @@ rev = "v{}".format(version)
 
 # Need to provide xz and lz4 as dependencies
 
+spaces_working_env()
+
 cmake_capsule_add_repo_checkout_and_run(
-    capsule_name = "zstd",
-    domain = "github.com",
-    owner = "facebook",
-    repo = "zstd",
+    "zstd",
+    capsule = capsule("github.com", "facebook", "zstd"),
     rev = rev,
     version = version,
     relative_source_directory = "build/cmake",
-    deploy_repo = "https://github.com/work-spaces/capsules",
+    oras_url = "ghcr.io/work-spaces",
 )
 
-spaces_working_env()
