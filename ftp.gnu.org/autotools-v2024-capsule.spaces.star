@@ -6,44 +6,38 @@ in the spaces store.
 """
 
 load(
-    "//@sdk/star/checkout.star",
-    "checkout_update_env",
+    "//@sdk/star/spaces-env.star",
+    "spaces_working_env",
 )
-load("//@sdk/star/capsule.star", "capsule_get_install_path", "capsule_checkout_define_dependency")
+load("//@sdk/star/capsule.star", "capsule_add_checkout_and_run")
 load("//@sdk/star/gnu.star", "gnu_add_autotools_from_source", "gnu_capsule")
 
-autoconf_version = "2.72"
-automake_version = "1.17"
-libtool_version = "2.5.4"
 capsule_name = "autotools"
 autotools_capsule = gnu_capsule("autotools")
 
-def add_autotools_checkout_and_run():
-    """
-    Add the autotools checkout and run if the install path does not exist
-    """
-    install_path = capsule_get_install_path(autotools_capsule)
-    if install_path != None:
-        # the checkout and run rules are only added in the install path not None
-        gnu_add_autotools_from_source(
-            capsule_name,
-            autoconf_version,
-            automake_version,
-            libtool_version,
-            install_path = install_path,
-        )
+spaces_env_rule = spaces_working_env()
 
 
-capsule_checkout_define_dependency(
-    "{}_info".format(capsule_name),
+def _build_function(name, install_path, _args):
+    autoconf_version = "2.72"
+    automake_version = "1.17"
+    libtool_version = "2.5.4"
+    gnu_add_autotools_from_source(
+        name,
+        autoconf_version,
+        automake_version,
+        libtool_version,
+        install_path = install_path,
+    )
+
+
+capsule_add_checkout_and_run(
+    capsule_name,
     capsule = gnu_capsule(capsule_name),
     version = "2024.0.0",
+    build_function = _build_function,
+    build_function_args = {},
 )
 
-add_autotools_checkout_and_run()
 
 # This is required to build this capsule. It does not affect consumers of the capsule.
-checkout_update_env(
-    "update_env",
-    paths = ["/usr/bin", "/bin"],
-)
