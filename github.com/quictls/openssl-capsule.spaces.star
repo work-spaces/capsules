@@ -23,5 +23,4 @@ gnu_capsule_add_checkout_and_run(
     version = "0.22",
 )
 
-
 spaces_working_env()

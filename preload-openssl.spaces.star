@@ -31,11 +31,11 @@ def openssl_build(
         deps: The dependencies of the project
     """
 
-    prepare_rule_name = "{}_prepare".format(name)
-    configure_rule_name = "{}_configure".format(name)
-    build_rule_name = "{}_build".format(name)
-    install_rule_name = "{}_install".format(name)
-    build_directory = "build/{}".format(name)
+    prepare_rule_name = "{{}}_prepare".format(name)
+    configure_rule_name = "{{}}_configure".format(name)
+    build_rule_name = "{{}}_build".format(name)
+    install_rule_name = "{{}}_install".format(name)
+    build_directory = "build/{{}}".format(name)
     workspace = info.get_absolute_path_to_workspace()
     cpu_count = info.get_cpu_count()
 
@@ -48,35 +48,35 @@ def openssl_build(
     run_add_exec(
         configure_rule_name,
         deps = deps + [prepare_rule_name],
-        inputs = ["+{}/Configure".format(source_directory)],
-        command = "{}/{}/Configure".format(workspace, source_directory),
+        inputs = ["+{{}}/Configure".format(source_directory)],
+        command = "{{}}/{{}}/Configure".format(workspace, source_directory),
         args = [
-            "--prefix={}".format(install_path),
-            "--openssldir={}/openssl".format(install_path),
+            "--prefix={{}}".format(install_path),
+            "--openssldir={{}}/openssl".format(install_path),
             "-no-docs",
         ] + configure_args,
         working_directory = build_directory,
-        help = "Build {}".format(name),
+        help = "Build {{}}".format(name),
     )
 
     run_add_exec(
         build_rule_name,
         deps = [configure_rule_name],
-        inputs = ["+{}/Makefile".format(build_directory), "+{}/**".format(source_directory)],
+        inputs = ["+{{}}/Makefile".format(build_directory), "+{{}}/**".format(source_directory)],
         command = "make",
-        args = ["-j{}".format(cpu_count)] + make_args,
+        args = ["-j{{}}".format(cpu_count)] + make_args,
         working_directory = build_directory,
-        help = "Build {}".format(name),
+        help = "Build {{}}".format(name),
     )
 
     run_add_exec(
         install_rule_name,
         deps = [build_rule_name],
-        inputs = ["+{}/**".format(build_directory)],
+        inputs = ["+{{}}/**".format(build_directory)],
         command = "make",
         args = ["install"],
         working_directory = build_directory,
-        help = "Install {}".format(name),
+        help = "Install {{}}".format(name),
     )
 
     run_add_target(
@@ -98,7 +98,7 @@ checkout.add_repo(
     rule = {"name": "@sdk"},
     repo = {
         "url": "https://github.com/work-spaces/sdk",
-        "rev": "2edbcf8a5f04eb227c8ab89fb103258745c43890",
+        "rev": "main",
         "checkout": "Revision",
         "clone": "Worktree"
     }
