@@ -22,4 +22,3 @@ cmake_capsule_add_repo_checkout_and_run(
     version = version,
     oras_url = "ghcr.io/work-spaces",
 )
-
