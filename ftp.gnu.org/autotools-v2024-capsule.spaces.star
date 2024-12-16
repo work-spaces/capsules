@@ -26,7 +26,7 @@ def add_autotools_checkout_and_run():
     if install_path != None:
         # the checkout and run rules are only added in the install path not None
         gnu_add_autotools_from_source(
-            "autotools",
+            capsule_name,
             autoconf_version,
             automake_version,
             libtool_version,
@@ -37,7 +37,7 @@ def add_autotools_checkout_and_run():
 capsule_checkout_define_dependency(
     "{}_info".format(capsule_name),
     capsule = gnu_capsule(capsule_name),
-    version = version,
+    version = "2024.0.0",
 )
 
 add_autotools_checkout_and_run()
