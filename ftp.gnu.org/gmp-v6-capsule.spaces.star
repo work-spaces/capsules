@@ -13,7 +13,7 @@ load(
 gnu_add_autotools_capsule()
 
 gnu_capsule_add_checkout_and_run(
-    capsule_name = "gmp",
+    "gmp",
     oras_url = "ghrc.io/work-spaces",
     version = "6.3.0",
 )

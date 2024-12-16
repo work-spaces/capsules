@@ -34,7 +34,7 @@ capsule_checkout(
 
 source = "mpc"
 gnu_capsule_add_checkout_and_run(
-    name = source,
+    source,
     capsule = gnu_capsule(source),
     oras_url = "ghcr.io/work-spaces",
     version = "1.3.1",
