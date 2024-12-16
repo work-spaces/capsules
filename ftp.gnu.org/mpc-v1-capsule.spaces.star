@@ -10,7 +10,7 @@ load(
     "gnu_add_autotools_capsule",
 )
 
-gnu_add_autotools_capsule()
+capsules_checkout_rule = gnu_add_autotools_capsule()
 
 capsule_checkout(
     "gmp",
@@ -18,7 +18,7 @@ capsule_checkout(
         "capsules/ftp.gnu.org/preload",
         "capsules/ftp.gnu.org/gmp-v6-capsule",
     ],
-    deps = ["@capsules/capsules"],
+    deps = [capsules_checkout_rule],
     prefix = "build/install",
 )
 
@@ -28,7 +28,7 @@ capsule_checkout(
         "capsules/ftp.gnu.org/preload",
         "capsules/ftp.gnu.org/mpfr-v4-capsule",
     ],
-    deps = ["@capsules/capsules"],
+    deps = [capsules_checkout_rule],
     prefix = "build/install",
 )
 
