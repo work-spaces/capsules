@@ -35,7 +35,7 @@ def gnu_add_autotools_capsule():
 
     capsule_checkout(
         "autotools",
-        required = [libtool2, automake1, autoconf2],
+        required = [],
         scripts = ["capsules/ftp.gnu.org/preload", "capsules/ftp.gnu.org/autotools-v2024-capsule"],
         deps = [checkout_capsules_rule_name, env_rule],
         prefix = "sysroot",
