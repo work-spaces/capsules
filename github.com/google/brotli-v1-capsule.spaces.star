@@ -1,5 +1,5 @@
 """
-libxml2 capsule
+brotli capsule
 """
 
 load("//@sdk/star/spaces-env.star", "spaces_working_env")
