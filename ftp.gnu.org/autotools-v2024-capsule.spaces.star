@@ -33,18 +33,14 @@ def add_autotools_checkout_and_run():
             install_path = install_path,
         )
 
-def define_depedency(repo, version):
-    capsule_checkout_define_dependency(
-        "{}_info".format(repo),
-        capsule = gnu_capsule(repo),
-        version = version,
-    )
+
+capsule_checkout_define_dependency(
+    "{}_info".format(capsule_name),
+    capsule = gnu_capsule(capsule_name),
+    version = version,
+)
 
 add_autotools_checkout_and_run()
-
-define_depedency("libtool", libtool_version)
-define_depedency("autoconf", autoconf_version)
-define_depedency("automake", automake_version)
 
 # This is required to build this capsule. It does not affect consumers of the capsule.
 checkout_update_env(
