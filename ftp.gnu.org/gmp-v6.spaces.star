@@ -10,7 +10,8 @@ load(
     "gnu_add_autotools_capsule",
 )
 
-gnu_add_autotools_capsule()
+def checkout_function():
+    gnu_add_autotools_capsule()
 
 source = "gmp"
 gnu_capsule_add_checkout_and_run(
@@ -19,5 +20,6 @@ gnu_capsule_add_checkout_and_run(
     oras_url = "ghcr.io/work-spaces",
     gh_deploy_repo = "https://github.com/work-spaces/capsules",
     version = "6.3.0",
+    checkout_function = checkout_function,
 )
 
