@@ -19,7 +19,7 @@ prefix = capsule_get_prefix("readline")
 #readline depends on gettext
 capsule_checkout(
     "gettext",
-    scripts = ["capsules/ftp.gnu.org/preload", "capsules/ftp.gnu.org/gettext-v0-capsule"],
+    scripts = ["capsules/ftp.gnu.org/preload", "capsules/ftp.gnu.org/gettext-v0"],
     deps = [checkout_capsules_rule_name],
     prefix = prefix,
 )
