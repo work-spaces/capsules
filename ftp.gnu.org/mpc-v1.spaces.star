@@ -19,6 +19,7 @@ capsules_checkout_rule = gnu_add_autotools_capsule()
 capsule_checkout(
     "gmp",
     scripts = [
+        "capsules/lock",
         "capsules/ftp.gnu.org/preload",
         "capsules/ftp.gnu.org/gmp-v6",
     ],
@@ -29,6 +30,7 @@ capsule_checkout(
 capsule_checkout(
     "mpfr",
     scripts = [
+        "capsules/lock",
         "capsules/ftp.gnu.org/preload",
         "capsules/ftp.gnu.org/mpfr-v4",
     ],
@@ -41,6 +43,7 @@ gnu_capsule_add_checkout_and_run(
     source,
     capsule = gnu_capsule(source),
     oras_url = "ghcr.io/work-spaces",
+    gh_deploy_repo = "https://github.com/work-spaces/capsules",
     version = "1.3.1",
 )
 
