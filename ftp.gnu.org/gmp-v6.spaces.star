@@ -17,6 +17,7 @@ gnu_capsule_add_checkout_and_run(
     source,
     capsule = gnu_capsule(source),
     oras_url = "ghcr.io/work-spaces",
+    gh_deploy_repo = "https://github.com/work-spaces/capsules",
     version = "6.3.0",
 )
 
