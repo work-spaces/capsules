@@ -10,7 +10,7 @@ load(
     "openssl_build",
 )
 
-load("//@star/sdk/star/spaces-sdk.star", "spaces_add")
+load("//@star/packages/star/spaces-cli.star", "spaces_add")
 spaces_add("spaces0", "v0.11.4")
 
 gnu_add_autotools_capsule()

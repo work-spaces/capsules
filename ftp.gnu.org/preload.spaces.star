@@ -12,7 +12,7 @@ load(
     "capsule_checkout_add_workflow_repo_as_soft_link",
     "capsule_checkout"
 )
-load("//@star/sdk/star/spaces-sdk.star", "spaces_add")
+load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
 
 def gnu_add_autotools_capsule():
