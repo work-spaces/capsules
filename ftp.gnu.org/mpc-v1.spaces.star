@@ -20,7 +20,6 @@ def checkout_function():
     capsule_checkout(
         "gmp",
         scripts = [
-            "capsules/lock",
             "capsules/ftp.gnu.org/preload",
             "capsules/ftp.gnu.org/gmp-v6",
         ],
@@ -31,7 +30,6 @@ def checkout_function():
     capsule_checkout(
         "mpfr",
         scripts = [
-            "capsules/lock",
             "capsules/ftp.gnu.org/preload",
             "capsules/ftp.gnu.org/mpfr-v4",
         ],
