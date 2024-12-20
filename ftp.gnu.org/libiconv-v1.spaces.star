@@ -4,7 +4,7 @@ GNU capsule
 
 """
 
-load("//@sdk/star/gnu.star", "gnu_capsule_add_checkout_and_run")
+load("//@sources/star/gnu.star", "gnu_capsule_add_checkout_and_run")
 load("//@sdk/star/capsule.star", "capsule_add", "capsule_get_prefix")
 load("//gnu.star", "gnu_add_autotools_capsule")
 

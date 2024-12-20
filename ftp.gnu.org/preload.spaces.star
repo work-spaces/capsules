@@ -56,3 +56,13 @@ checkout.add_repo(
         "clone": "Worktree"
     }
 )
+
+checkout.add_repo(
+    rule = {"name": "@sources"},
+    repo = {
+        "url": "https://github.com/work-spaces/sources",
+        "rev": "main",
+        "checkout": "Revision",
+        "clone": "Worktree"
+    }
+)
