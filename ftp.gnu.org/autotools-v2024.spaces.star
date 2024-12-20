@@ -6,11 +6,11 @@ in the spaces store.
 """
 
 load(
-    "//@sources/sdk/star/spaces-env.star",
+    "//@sdk/sdk/star/spaces-env.star",
     "spaces_working_env",
 )
-load("//@sources/sdk/star/capsule.star", "capsule_add_checkout_and_run")
-load("//@sources/star/gnu.star", "gnu_add_autotools_from_source", "gnu_capsule")
+load("//@sdk/sdk/star/capsule.star", "capsule_add_checkout_and_run")
+load("//@sdk/sources/star/gnu.star", "gnu_add_autotools_from_source", "gnu_capsule")
 
 capsule_name = "autotools"
 autotools_capsule = gnu_capsule("autotools")

@@ -2,10 +2,10 @@
 zstd capsule
 """
 
-load("//@sdk/star/spaces-env.star", "spaces_working_env")
-load("//@sdk/star/cmake.star", "cmake_add", "cmake_capsule_add_repo_checkout_and_run")
-load("//@sdk/star/capsule.star", "capsule_github")
-load("//@sdk/star/spaces-sdk.star", "spaces_add")
+load("//@sdk/sdk/star/spaces-env.star", "spaces_working_env")
+load("//@sdk/sdk/star/cmake.star", "cmake_add", "cmake_capsule_add_repo_checkout_and_run")
+load("//@sdk/sdk/star/capsule.star", "capsule_github")
+load("//@sdk/sdk/star/spaces-sdk.star", "spaces_add")
 
 def checkout_function():
     spaces_add("spaces0", "v0.11.4")

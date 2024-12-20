@@ -8,12 +8,12 @@ Helper functions for GNU capsules
 """
 
 load(
-    "//@sources/sdk/star/capsule.star",
+    "//@sdk/sdk/star/capsule.star",
     "capsule_checkout_add_workflow_repo_as_soft_link",
     "capsule_checkout"
 )
-load("//@sources/sdk/star/spaces-sdk.star", "spaces_add")
-load("//@sources/sdk/star/spaces-env.star", "spaces_working_env")
+load("//@sdk/sdk/star/spaces-sdk.star", "spaces_add")
+load("//@sdk/sdk/star/spaces-env.star", "spaces_working_env")
 
 def gnu_add_autotools_capsule():
     """
@@ -48,9 +48,19 @@ checkout.add_asset(
 )
 
 checkout.add_repo(
-    rule = {"name": "@sources"},
+    rule = {"name": "@sdk/sources"},
     repo = {
         "url": "https://github.com/work-spaces/sources",
+        "rev": "main",
+        "checkout": "Revision",
+        "clone": "Worktree"
+    }
+)
+
+checkout.add_repo(
+    rule = {"name": "@sdk/sdk"},
+    repo = {
+        "url": "https://github.com/work-spaces/sdk",
         "rev": "main",
         "checkout": "Revision",
         "clone": "Worktree"

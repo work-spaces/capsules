@@ -4,13 +4,13 @@ OpenSSL capsule (quictls version)
 
 """
 
-load("//@sdk/star/spaces-env.star", "spaces_working_env")
+load("//@sdk/sdk/star/spaces-env.star", "spaces_working_env")
 load(
     "//openssl.star",
     "openssl_build",
 )
 
-load("//@sdk/star/spaces-sdk.star", "spaces_add")
+load("//@sdk/sdk/star/spaces-sdk.star", "spaces_add")
 spaces_add("spaces0", "v0.11.4")
 
 gnu_add_autotools_capsule()

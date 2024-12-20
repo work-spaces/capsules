@@ -4,14 +4,14 @@ GNU capsule
 
 """
 
-load("//@sdk/star/spaces-env.star", "spaces_working_env")
-load("//@sdk/star/gnu.star", "gnu_capsule_add_checkout_and_run")
+load("//@sdk/sdk/star/spaces-env.star", "spaces_working_env")
+load("//@sdk/sdk/star/gnu.star", "gnu_capsule_add_checkout_and_run")
 load(
     "//gnu.star",
     "gnu_add_autotools_capsule",
 )
 
-load("//@sdk/star/spaces-sdk.star", "spaces_add")
+load("//@sdk/sdk/star/spaces-sdk.star", "spaces_add")
 spaces_add("spaces0", "v0.11.4")
 
 gnu_add_autotools_capsule()
