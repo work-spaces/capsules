@@ -3,9 +3,8 @@ Capsules Lock File
 """
 
 workspace_locks = {
-  "preload:@sdk": "d05d1379622d68d085092d99a224ff624188be50",
-  "@sdk/sdk:@packages": "138fa5566dfca934cd6820d4686f0f42b1b43261",
-  "@sdk/sdk:@sources": "fb0d339c43234b533651ffd24c6c51ab44699716",
+  "preload:@sdk/sdk": "4ab8f084e8cd6375076772cada74210f5856b0ca",
+  "preload:@sdk/packages": "304f2254257c1f1f814c32c3850015c21435cb37",
 }
 
 info.set_locks(locks = workspace_locks) 

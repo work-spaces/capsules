@@ -11,3 +11,13 @@ checkout.add_repo(
         "clone": "Worktree"
     }
 )
+
+checkout.add_repo(
+    rule = {"name": "@star/packages"},
+    repo = {
+        "url": "https://github.com/work-spaces/packages",
+        "rev": "main",
+        "checkout": "Revision",
+        "clone": "Worktree"
+    }
+)
