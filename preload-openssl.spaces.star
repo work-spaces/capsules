@@ -8,7 +8,7 @@ Helper functions for openssl capsules
 """
 
 load(
-    "//@sdk/sdk/star/run.star",
+    "//@star/sdk/star/run.star",
     "run_add_exec",
     "run_add_target"
 )

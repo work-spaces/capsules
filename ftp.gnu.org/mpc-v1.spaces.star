@@ -4,9 +4,9 @@ GNU capsule
 
 """
 
-load("//@sdk/sources/star/gnu.star", "gnu_capsule_add_checkout_and_run", "gnu_capsule")
+load("//@star/sources/star/gnu.star", "gnu_capsule_add_checkout_and_run", "gnu_capsule")
 load(
-    "//@sdk/sdk/star/capsule.star",
+    "//@star/sdk/star/capsule.star",
     "capsule_checkout",
 )
 load(
