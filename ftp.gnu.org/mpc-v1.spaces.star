@@ -4,48 +4,24 @@ GNU capsule
 
 """
 
-load("//@star/sources/star/gnu.star", "gnu_capsule_add_checkout_and_run", "gnu_capsule")
-load(
-    "//@star/sdk/star/capsule.star",
-    "capsule_checkout",
-)
-load(
-    "//gnu.star",
-    "gnu_add_autotools_capsule",
-)
-
+load("//@star/capsules/star/gnu.star", "gnu_add_create_capsule")
+load("//@star/capsules/star/self.star", "self_gnu_capsule_checkout")
 
 def _checkout_function():
     capsules_checkout_rule = gnu_add_autotools_capsule()
-    capsule_checkout(
-        "gmp",
-        scripts = [
-            "capsules/ftp.gnu.org/lock",
-            "capsules/ftp.gnu.org/preload",
-            "capsules/ftp.gnu.org/gmp-v6",
-        ],
-        deps = [capsules_checkout_rule],
+    
+    self_gnu_capsule_checkout(
+        "gmp-v6",
         prefix = "build/install",
+        checkout_deps = [capsules_checkout_rule],
     )
 
-    capsule_checkout(
-        "mpfr",
-        scripts = [
-            "capsules/ftp.gnu.org/lock",
-            "capsules/ftp.gnu.org/preload",
-            "capsules/ftp.gnu.org/mpfr-v4",
-        ],
-        deps = [capsules_checkout_rule],
+    self_gnu_capsule_checkout(
+        "mpfr-v4",
         prefix = "build/install",
+        checkout_deps = [capsules_checkout_rule],
     )
 
-source = "mpc"
-gnu_capsule_add_checkout_and_run(
-    source,
-    capsule = gnu_capsule(source),
-    oras_url = "ghcr.io/work-spaces",
-    gh_deploy_repo = "https://github.com/work-spaces/capsules",
-    version = "1.3.1",
-    checkout_function = _checkout_function,
-)
+gnu_add_create_capsule("mpc", "1.3.1", checkout_function = _checkout_function)
+
 

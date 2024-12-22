@@ -7,6 +7,9 @@ load(
     "capsule_checkout"
 )
 
+ORAS_URL = "ghcr.io/work-spaces"
+GH_DEPLOY_REPO = "https://github.com/work-spaces/capsules"
+
 def self_gnu_capsule_checkout(name, prefix, checkout_deps = []):
     capsule_checkout(
         name,
