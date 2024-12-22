@@ -9,14 +9,23 @@ _capsule_path = info.get_path_to_capsule_workspace()
 _workspace = info.get_absolute_path_to_workspace()
 _source = "{}/../{}".format(_workspace, _name)
 
-# This will make this repo available to the capsules
-# allowing capsules to use starlark modules in the star
-# directory and to add capsule dependencies
+# Soft link this repo so that it is available to nested capsule workspaces
 checkout.add_soft_link_asset(
     rule = {"name": _rule_name},
     asset = {
         "source": _source,
         "destination": "{}/{}".format(_capsule_path, _name),
+    },
+)
+
+_star_rule_name = "{}_soft_link_star".format(_name)
+
+# Add loadable star modules to the @star folder under capsules
+checkout.add_soft_link_asset(
+    rule = {"name": _star_rule_name},
+    asset = {
+        "source": "{}/star".format(_source),
+        "destination": "@star/capsules",
     },
 )
 
