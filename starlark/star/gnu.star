@@ -108,8 +108,8 @@ def gnu_add_create_capsule(
     """
 
     gnu_capsule_add_checkout_and_run(
-        source,
-        capsule = gnu_capsule(source),
+        name,
+        capsule = gnu_capsule(name),
         oras_url = ORAS_URL,
         gh_deploy_repo = GH_DEPLOY_REPO,
         version = version,
