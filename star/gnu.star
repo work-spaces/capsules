@@ -20,6 +20,6 @@ def gnu_add_autotools_capsule():
     env_rule = spaces_working_env()
 
     self_gnu_capsule_checkout("autotools-v2024", 
-        deps = [env_rule],
+        checkout_deps = [env_rule],
         prefix = "sysroot",
     )
