@@ -10,7 +10,8 @@ load(
     "spaces_working_env",
 )
 load("//@star/sdk/star/capsule.star", "capsule_add_checkout_and_run")
-load("//@star/sources/star/gnu.star", "gnu_add_autotools_from_source", "gnu_capsule")
+load("//@star/sources/star/gnu.star", "gnu_add_autotools_from_source")
+load("//@astar/capsules/star/gnu.star", "gnu_capsule")
 
 capsule_name = "autotools"
 autotools_capsule = gnu_capsule("autotools")
