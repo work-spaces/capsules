@@ -5,7 +5,11 @@ Helper functions for GNU capsules
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
 load("self.star", "self_gnu_capsule_checkout", "ORAS_URL", "GH_DEPLOY_REPO")
-
+load(
+    "//@star/sdk/star/capsule.star",
+    "capsule",
+    "capsule_add_checkout_and_run",
+)
 
 def gnu_add_autotools_capsule():
     """
