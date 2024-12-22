@@ -61,7 +61,7 @@ def gnu_capsule_add_checkout_and_run(
     """
 
     def build_function(name, install_path, args):
-        checkout_function()
+        checkout_function(install_path)
 
         gnu_add_configure_make_install_from_source(
             name,
@@ -89,7 +89,7 @@ def gnu_capsule_add_checkout_and_run(
     )
 
 
-def _checkout_function():
+def _checkout_function(_install_path):
     gnu_add_autotools_capsule()
 
 def gnu_add_create_capsule(

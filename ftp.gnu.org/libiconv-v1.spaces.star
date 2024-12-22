@@ -4,37 +4,27 @@ GNU capsule
 
 """
 
-load("//@star/sources/star/gnu.star", "gnu_capsule_add_checkout_and_run")
-load("//@star/sdk/star/capsule.star", "capsule_get_prefix")
-load("//gnu.star", "gnu_add_autotools_capsule")
+load("//@star/capsules/star/gnu.star", "gnu_add_autotools_capsule", "gnu_add_create_capsule")
+load("//@star/capsules/star/self.star", "self_gnu_capsule_checkout")
 
+def _checkout_function(install_path):
+    capsules_checkout_rule = gnu_add_autotools_capsule()
 
-def _checkout_function():
-    checkout_capsules_rule_name = gnu_add_autotools_capsule()
-    prefix = capsule_get_prefix("libiconv")
-
-    #libiconv depends on gettext
-    capsule_checkout(
-        "gettext",
-        scripts = [
-            "capsules/ftp.gnu.org/lock", 
-            "capsules/ftp.gnu.org/preload", 
-            "capsules/ftp.gnu.org/gettext-v0"],
-        deps = [checkout_capsules_rule_name],
-        prefix = prefix,
+    self_gnu_capsule_checkout(
+        "getttext-v0",
+        prefix = install_path,
+        checkout_deps = [capsules_checkout_rule],
     )
 
-gnu_capsule_add_checkout_and_run(
-    capsule_name = "libiconv",
-    oras_url = "ghrc.io/work-spaces",
-    gh_deploy_repo = "https://github.com/work-spaces/capsules",
+gnu_add_create_capsule(
+    "libiconv",
     version = "1.17",
     configure_args = [
         "--enable-static",
         "--without-libiconv-prefix",
         "--without-libintl-prefix",
         "--disable-nls",
-        "--enable-extra-encodings"
+        "--enable-extra-encodings",
     ],
     checkout_function = _checkout_function,
 )

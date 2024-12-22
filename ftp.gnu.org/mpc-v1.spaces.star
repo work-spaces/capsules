@@ -4,21 +4,21 @@ GNU capsule
 
 """
 
-load("//@star/capsules/star/gnu.star", "gnu_add_create_capsule")
+load("//@star/capsules/star/gnu.star", "gnu_add_create_capsule", "gnu_add_autotools_capsule")
 load("//@star/capsules/star/self.star", "self_gnu_capsule_checkout")
 
-def _checkout_function():
+def _checkout_function(install_path):
     capsules_checkout_rule = gnu_add_autotools_capsule()
-    
+
     self_gnu_capsule_checkout(
         "gmp-v6",
-        prefix = "build/install",
+        prefix = install_path,
         checkout_deps = [capsules_checkout_rule],
     )
 
     self_gnu_capsule_checkout(
         "mpfr-v4",
-        prefix = "build/install",
+        prefix = install_path,
         checkout_deps = [capsules_checkout_rule],
     )
 
