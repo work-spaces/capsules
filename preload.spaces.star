@@ -24,7 +24,7 @@ _star_rule_name = "{}_soft_link_star".format(_name)
 checkout.add_soft_link_asset(
     rule = {"name": _star_rule_name},
     asset = {
-        "source": "{}/star".format(_source),
+        "source": "{}/starlark".format(_source),
         "destination": "@star/capsules",
     },
 )
