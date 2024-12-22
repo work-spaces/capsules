@@ -6,7 +6,10 @@ load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
 load("//@star/sdk/star/cmake.star", "cmake_add", "cmake_capsule_add_repo_checkout_and_run")
 load("//@star/sdk/star/capsule.star", "capsule")
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
+load("//bootstrap.star", "bootstrap_add_self_as_soft_link")
 
+
+bootstrap_checkout = bootstrap_add_self_as_soft_link()
 
 def _checkout_function():
     spaces_add("spaces0", "v0.11.4")
