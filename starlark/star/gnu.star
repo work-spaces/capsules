@@ -3,6 +3,7 @@ Helper functions for GNU capsules
 """
 
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
+load("//@star/sources/star/gnu.star", "gnu_add_configure_make_install_from_source")
 load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
 load("self.star", "self_gnu_capsule_checkout", "ORAS_URL", "GH_DEPLOY_REPO")
 load(
