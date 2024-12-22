@@ -12,6 +12,7 @@ def self_gnu_capsule_checkout(name, prefix, checkout_deps = []):
         name,
         scripts = [
             "capsules/ftp.gnu.org/lock",
+            "capsules/preload",
             "capsules/ftp.gnu.org/preload",
             "capsules/ftp.gnu.org/{}".format(name),
         ],

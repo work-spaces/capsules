@@ -36,6 +36,3 @@ capsule_add_checkout_and_run(
     build_function = _build_function,
     build_function_args = {},
 )
-
-
-# This is required to build this capsule. It does not affect consumers of the capsule.
