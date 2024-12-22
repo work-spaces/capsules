@@ -14,7 +14,6 @@ load("//@star/sources/star/gnu.star", "gnu_add_autotools_from_source", "gnu_caps
 
 capsule_name = "autotools"
 autotools_capsule = gnu_capsule("autotools")
-
 spaces_env_rule = spaces_working_env()
 
 
@@ -29,7 +28,6 @@ def _build_function(name, install_path, _args):
         libtool_version,
         install_path = install_path,
     )
-
 
 capsule_add_checkout_and_run(
     capsule_name,

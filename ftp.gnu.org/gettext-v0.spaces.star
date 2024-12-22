@@ -10,15 +10,18 @@ load(
     "gnu_add_autotools_capsule",
 )
 
-gnu_add_autotools_capsule()
+def _checkout_function():
+    gnu_add_autotools_capsule()
 
 owner = "gettext"
 
 gnu_capsule_add_checkout_and_run(
     capsule_name = owner,
     oras_url = "ghrc.io/work-spaces",
+    gh_deploy_repo = "https://github.com/work-spaces/capsules",
     version = "0.22",
     configure_args = [
         "--disable-csharp"
-    ]
+    ],
+    checkout_function = _checkout_function,
 )
