@@ -23,6 +23,19 @@ def bootstrap_add_self_as_soft_link():
     return capsule_checkout_add_workflow_repo_as_soft_link("capsules")
 '''
 
+_name = "capsules"
+_rule_name = "{}_soft_link_parent".format(_name)
+_workspace = info.get_absolute_path_to_workspace()
+_source = "{}/../{}".format(_workspace, _name)
+
+checkout.add_soft_link_asset(
+    rule = {"name": _rule_name},
+    asset = {
+        "source": _source,
+        "destination": "@capsules/{}".format(_name),
+    },
+)
+
 checkout.add_asset(
     rule = {"name": "bootstrap_star"},
     asset = {
