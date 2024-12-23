@@ -24,6 +24,7 @@ def cmake_add_create_capsule(
     rev = None,
     checkout_function = _checkout_function,
     configure_args = [],
+    relative_source_directory = None,
     checkout_submodules = False):
     """
     Add the cmake capsule
@@ -37,6 +38,7 @@ def cmake_add_create_capsule(
         checkout_function: The checkout function
         configure_args: The arguments to pass to the configure script
         checkout_submodules: Checkout the submodules
+        relative_source_directory: The relative source directory
     """
 
     effective_rev = rev if rev else "v{}".format(version)
@@ -50,6 +52,7 @@ def cmake_add_create_capsule(
         gh_deploy_repo = GH_DEPLOY_REPO,
         checkout_function = checkout_function,
         checkout_submodules = checkout_submodules,
+        relative_source_directory = relative_source_directory,
         configure_args = configure_args
     )
 
