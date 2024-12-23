@@ -4,29 +4,12 @@ nghttp3 capsule
 
 """
 
-load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
-load("//@star/sdk/star/cmake.star", "cmake_add", "cmake_capsule_add_repo_checkout_and_run")
-load("//@star/sdk/star/capsule.star", "capsule")
-load("//@star/packages/star/spaces-cli.star", "spaces_add")
-
-def _checkout_function(_install_path):
-    spaces_add("spaces0", "v0.11.4")
-    cmake_add("cmake3", "v3.31.1")
-
-capsule_name = "nghttp3"
-version = "1.6.0"
-rev = "v{}".format(version)
-
-cmake_capsule_add_repo_checkout_and_run(
-    capsule_name = capsule_name,
-    capsule = capsule("github.com", "ngtcp2", capsule_name),
+load("//@star/capsules/star/cmake.star", "cmake_add_create_capsule")
+cmake_add_create_capsule(
+    domain = "github.com",
     owner = "ngtcp2",
-    repo = capsule_name,
-    rev = rev,
-    version = version,
-    checkout_function = _checkout_function,
-    oras_url = "ghcr.io/work-spaces",
+    repo = "nghttp3",
+    version = "1.6.0",
     checkout_submodules = True
 )
 
-spaces_working_env()
