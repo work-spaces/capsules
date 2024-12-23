@@ -96,7 +96,8 @@ def gnu_add_create_capsule(
     name,
     version,
     checkout_function = _checkout_function,
-    configure_args = []):
+    configure_args = [],
+    owner = None):
     """
     Add the GNU capsule
 
@@ -105,11 +106,12 @@ def gnu_add_create_capsule(
         version: The version of the repository
         checkout_function: The checkout function
         configure_args: The arguments to pass to the configure script
+        owner: The owner of the repository
     """
 
     gnu_capsule_add_checkout_and_run(
         name,
-        capsule = gnu_capsule(name),
+        capsule = gnu_capsule(name, owner),
         oras_url = ORAS_URL,
         gh_deploy_repo = GH_DEPLOY_REPO,
         version = version,

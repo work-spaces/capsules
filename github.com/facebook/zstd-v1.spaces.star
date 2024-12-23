@@ -29,3 +29,7 @@ cmake_capsule_add_repo_checkout_and_run(
     gh_deploy_repo = "https://github.com/work-spaces/capsules",
 )
 
+load("//@star/capsules/star/self.star", "self_capsule_checkout")
+self_capsule_checkout("github.com", "facebook", "zstd-v1", prefix = "build/install")
+
+
