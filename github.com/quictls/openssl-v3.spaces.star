@@ -26,13 +26,13 @@ def build_function(name, install_path, _args):
         install_path = install_path,
     )
 
-capsule_name = "openssl"
+name = "openssl"
 version = "2.5.19"
 rev = "v{}".format(version)
 
 capsule_add_checkout_and_run(
     name,
-    capsule = capsule("github.com", "quictls", "openssl"),
+    capsule = capsule("github.com", "quictls", name),
     version = version,
     oras_url = ORAS_URL,
     gh_deploy_repo = GH_DEPLOY_REPO,
