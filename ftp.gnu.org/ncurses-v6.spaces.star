@@ -4,21 +4,9 @@ GNU capsule
 
 """
 
-load("//@star/sources/star/gnu.star", "gnu_capsule_add_checkout_and_run")
-load(
-    "//gnu.star",
-    "gnu_add_autotools_capsule",
-)
-
-gnu_add_autotools_capsule()
-
-owner = "ncurses"
-
-prefix = capsule_get_prefix("ncurses")
-
-gnu_capsule_add_checkout_and_run(
-    capsule_name = owner,
-    oras_url = "ghcr.io/work-spaces",
+load("//@star/capsules/star/gnu.star", "gnu_add_create_capsule")
+gnu_add_create_capsule(
+    "ncurses",
     version = "6.5",
     configure_args = [
         "--enable-widec",
@@ -35,4 +23,5 @@ gnu_capsule_add_checkout_and_run(
         "--disable-mixed-case",
     ],
 )
+
 
