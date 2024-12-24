@@ -8,7 +8,10 @@ load("//@star/capsules/star/cmake.star", "cmake_add_create_capsule")
 load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("//@star/sdk/star/cmake.star", "cmake_add")
-
+load(
+    "//@star/capsules/star/self.star",
+    "self_capsule_checkout",
+)
 
 def _checkout_function(_install_path):
     spaces_add("spaces0", "v0.11.4")
