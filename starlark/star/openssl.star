@@ -27,11 +27,11 @@ def openssl_build(
         deps: The dependencies of the project
     """
 
-    prepare_rule_name = "{{}}_prepare".format(name)
-    configure_rule_name = "{{}}_configure".format(name)
-    build_rule_name = "{{}}_build".format(name)
-    install_rule_name = "{{}}_install".format(name)
-    build_directory = "build/{{}}".format(name)
+    prepare_rule_name = "{}_prepare".format(name)
+    configure_rule_name = "{}_configure".format(name)
+    build_rule_name = "{}_build".format(name)
+    install_rule_name = "{}_install".format(name)
+    build_directory = "build/{}".format(name)
     workspace = info.get_absolute_path_to_workspace()
     cpu_count = info.get_cpu_count()
 
