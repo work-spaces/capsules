@@ -11,7 +11,7 @@ checkout.add_repo(
         "rev": "main",
         "checkout": "Revision",
         "clone": "Worktree",
-        "working_directory": workflows_path,
+        "working_directory": _workflows_path,
     }
 )
 
