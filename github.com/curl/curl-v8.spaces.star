@@ -79,5 +79,3 @@ capsule_add_checkout_and_run(
     build_function = _build_function,
     build_function_args = {},
 )
-
-spaces_working_env()
