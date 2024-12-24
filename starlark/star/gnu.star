@@ -15,6 +15,9 @@ load(
 def gnu_add_autotools_capsule():
     """
     Add the autotools capsule
+
+    Reutrns:
+        The environment rule
     """
 
     spaces_add("spaces0", "v0.11.4")
@@ -24,6 +27,8 @@ def gnu_add_autotools_capsule():
         checkout_deps = [env_rule],
         prefix = "sysroot",
     )
+
+    return env_rule
 
 def gnu_capsule(repo, owner = None, domain = "ftp.gnu.org"):
     """
