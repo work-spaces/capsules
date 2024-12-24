@@ -16,6 +16,10 @@ load(
     "ORAS_URL",
     "GH_DEPLOY_REPO"
 )
+load(
+    "//@star/capsules/star/self.star",
+    "gnu_add_autotools_capsule",
+)
 
 def _build_function(name, install_path, _args):
     spaces_add("spaces0", "v0.11.4")
