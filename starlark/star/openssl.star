@@ -44,35 +44,35 @@ def openssl_build(
     run_add_exec(
         configure_rule_name,
         deps = deps + [prepare_rule_name],
-        inputs = ["+{{}}/Configure".format(source_directory)],
-        command = "{{}}/{{}}/Configure".format(workspace, source_directory),
+        inputs = ["+{}/Configure".format(source_directory)],
+        command = "{}/{}/Configure".format(workspace, source_directory),
         args = [
-            "--prefix={{}}".format(install_path),
-            "--openssldir={{}}/openssl".format(install_path),
+            "--prefix={}".format(install_path),
+            "--openssldir={}/openssl".format(install_path),
             "-no-docs",
         ] + configure_args,
         working_directory = build_directory,
-        help = "Build {{}}".format(name),
+        help = "Build {}".format(name),
     )
 
     run_add_exec(
         build_rule_name,
         deps = [configure_rule_name],
-        inputs = ["+{{}}/Makefile".format(build_directory), "+{{}}/**".format(source_directory)],
+        inputs = ["+{}/Makefile".format(build_directory), "+{}/**".format(source_directory)],
         command = "make",
-        args = ["-j{{}}".format(cpu_count)] + make_args,
+        args = ["-j{}".format(cpu_count)] + make_args,
         working_directory = build_directory,
-        help = "Build {{}}".format(name),
+        help = "Build {}".format(name),
     )
 
     run_add_exec(
         install_rule_name,
         deps = [build_rule_name],
-        inputs = ["+{{}}/**".format(build_directory)],
+        inputs = ["+{}/**".format(build_directory)],
         command = "make",
         args = ["install"],
         working_directory = build_directory,
-        help = "Install {{}}".format(name),
+        help = "Install {}".format(name),
     )
 
     run_add_target(
