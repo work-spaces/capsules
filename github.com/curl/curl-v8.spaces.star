@@ -16,15 +16,9 @@ load(
     "ORAS_URL",
     "GH_DEPLOY_REPO"
 )
-load(
-    "//@star/capsules/star/gnu.star",
-    "gnu_add_autotools_capsule",
-)
 
 def _build_function(name, install_path, _args):
     spaces_add("spaces0", "v0.11.4")
-
-    gnu_add_autotools_capsule()
 
     package_add("github.com", "xpack-dev-tools", "pkg-config-xpack", "v0.29.2-3")
     self_gnu_capsule_checkout("libiconv-v1", "build/install")
