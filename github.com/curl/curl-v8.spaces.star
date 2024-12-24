@@ -13,15 +13,16 @@ load(
     "//@capsules/capsules/star/self.star",
     "self_capsule_checkout",
     "self_gnu_capsule_checkout",
+    "ORAS_URL",
+    "GH_DEPLOY_REPO"
 )
 
 def _build_function(name, install_path, _args):
     spaces_add("spaces0", "v0.11.4")
 
-    capsules_checkout_rule = gnu_add_autotools_capsule()
+    gnu_add_autotools_capsule()
 
     package_add("github.com", "xpack-dev-tools", "pkg-config-xpack", "v0.29.2-3")
-
     self_gnu_capsule_checkout("libiconv-v1", "build/install")
     self_gnu_capsule_checkout("libidn-v2", "build/install")
     self_gnu_capsule_checkout("groff-v1", "build/install")
@@ -80,14 +81,13 @@ def _build_function(name, install_path, _args):
 
 name = "curl"
 version = "8.11.1"
-rev = "v{}".format(version)
 
 capsule_add_checkout_and_run(
     name,
     capsule = capsule("github.com", "curl", "curl"),
     version = version,
-    oras_url = "ghcr.io/work-spaces",
-    gh_deploy_repo = "https://github.com/work-spaces/capsules",
+    oras_url = ORAS_URL,
+    gh_deploy_repo = GH_DEPLOY_REPO,
     build_function = _build_function,
     build_function_args = {},
 )
