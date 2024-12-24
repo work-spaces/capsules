@@ -29,6 +29,7 @@ def _build_function(name, install_path, _args):
     self_gnu_capsule_checkout("groff-v1", "sysroot", checkout_deps = [env_rule])
     self_gnu_capsule_checkout("m4-v1", "sysroot", checkout_deps = [env_rule])
     self_capsule_checkout("github.com", "nghttp2", "nghttp2-v1", "build/install", checkout_deps = [env_rule])
+    self_capsule_checkout("github.com", "ngtcp2", "ngtcp2-v1", "build/install", checkout_deps = [env_rule])
     self_capsule_checkout("github.com", "ngtcp2", "nghttp3-v1", "build/install", checkout_deps = [env_rule])
     self_capsule_checkout("github.com", "facebook", "zstd-v1", "build/install", checkout_deps = [env_rule])
     self_capsule_checkout("github.com", "madler", "zlib-v1", "build/install", checkout_deps = [env_rule])
