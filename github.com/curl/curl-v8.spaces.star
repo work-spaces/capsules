@@ -17,7 +17,7 @@ load(
     "GH_DEPLOY_REPO"
 )
 load(
-    "//@star/capsules/star/self.star",
+    "//@star/capsules/star/gnu.star",
     "gnu_add_autotools_capsule",
 )
 
