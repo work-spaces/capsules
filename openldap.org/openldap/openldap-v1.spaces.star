@@ -13,7 +13,7 @@ load("//@star/capsules/star/self.star", "ORAS_URL", "GH_DEPLOY_REPO")
 def build_function(name, install_path, _args):
     spaces_add("spaces0", "v0.11.4")
     gnu_add_repo(
-        "openldap_add_repo_build",
+        name,
         url = "https://git.openldap.org/openldap/openldap",
         rev = "OPENLDAP_REL_ENG_2_5_19",
         install_path = install_path,
