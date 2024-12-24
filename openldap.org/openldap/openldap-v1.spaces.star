@@ -19,13 +19,13 @@ def build_function(name, install_path, _args):
         install_path = install_path,
     )
 
-capsule_name = "openldap"
+name = "openldap"
 version = "2.5.19"
 rev = "v{}".format(version)
 
 capsule_add_checkout_and_run(
     name,
-    capsule = capsule("openldap.org", "openldap", "openldap"),
+    capsule = capsule("openldap.org", "openldap", name),
     version = version,
     oras_url = ORAS_URL,
     gh_deploy_repo = GH_DEPLOY_REPO,
