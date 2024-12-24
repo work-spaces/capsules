@@ -47,19 +47,6 @@ def _build_function(name, install_path, _args):
 
     gnu_add_repo(
         "curl",
-        deps = [
-            "gnu_autotools_from_source",
-            "openssl_install",
-            "libxml2_install",
-            "nghttp2_install",
-            "brotli_install",
-            "ngtcp2_install",
-            "nghttp3_install",
-            "zstd_install",
-            "zlib_install",
-            "libidn2_install",
-            "openldap_install",
-        ] + gnu_autotools_deps,
         autoreconf_args = ["-fi"],
         url = "https://github.com/curl/curl",
         rev = "curl-8_11_0",
