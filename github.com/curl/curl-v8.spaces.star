@@ -46,7 +46,7 @@ def _build_function(name, install_path, _args):
     build_install_path = "{}/build/install".format(info.get_absolute_path_to_workspace())
 
     gnu_add_repo(
-        "curl",
+        name,
         autoreconf_args = ["-fi"],
         url = "https://github.com/curl/curl",
         rev = "curl-8_11_0",
