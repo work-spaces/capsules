@@ -22,7 +22,6 @@ load(
 
 def _build_function(name, install_path, _args):
     gnu_add_autotools_capsule()
-    spaces_add("spaces0", "v0.11.4")
 
     package_add("github.com", "xpack-dev-tools", "pkg-config-xpack", "v0.29.2-3")
     self_gnu_capsule_checkout("libiconv-v1", "build/install")
