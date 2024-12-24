@@ -21,7 +21,7 @@ def build_function(name, install_path, _args):
         clone = "Blobless")
 
     openssl_build(
-        "openssl_build",
+        name,
         source_directory = "quictls_openssl",
         install_path = install_path,
     )
