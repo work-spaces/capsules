@@ -10,13 +10,18 @@ load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("//@star/packages/star/package.star", "package_add")
 load(
     "//@star/capsules/star/self.star",
+    "GH_DEPLOY_REPO",
+    "ORAS_URL",
     "self_capsule_checkout",
     "self_gnu_capsule_checkout",
-    "ORAS_URL",
-    "GH_DEPLOY_REPO"
+)
+load(
+    "//@star/capsules/star/gnu.star",
+    "gnu_add_autotools_capsule",
 )
 
 def _build_function(name, install_path, _args):
+    gnu_add_autotools_capsule()
     spaces_add("spaces0", "v0.11.4")
 
     package_add("github.com", "xpack-dev-tools", "pkg-config-xpack", "v0.29.2-3")
