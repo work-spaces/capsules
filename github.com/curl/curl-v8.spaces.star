@@ -10,7 +10,7 @@ load("//@star/sdk/star/gnu.star", "gnu_add_repo")
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("//@star/packages/star/package.star", "package_add")
 load(
-    "//@capsules/capsules/star/self.star",
+    "//@star/capsules/star/self.star",
     "self_capsule_checkout",
     "self_gnu_capsule_checkout",
     "ORAS_URL",
