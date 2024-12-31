@@ -16,7 +16,7 @@ def gnu_add_autotools_capsule():
     """
     Add the autotools capsule
 
-    Reutrns:
+    Returns:
         The environment rule
     """
 
