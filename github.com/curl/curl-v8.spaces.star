@@ -20,7 +20,7 @@ load(
     "gnu_add_autotools_capsule",
 )
 
-def _build_function(name, install_path, _args):
+def _build_function(name, _install_path, _args):
     env_rule = gnu_add_autotools_capsule()
 
     package_add("github.com", "xpack-dev-tools", "pkg-config-xpack", "v0.29.2-3")
@@ -36,19 +36,19 @@ def _build_function(name, install_path, _args):
     self_capsule_checkout("openldap.org", "openldap", "openldap-v1", "build/install", checkout_deps = [env_rule])
     self_capsule_checkout("github.com", "quictls", "openssl-v3", "build/install", checkout_deps = [env_rule])
 
+    build_install_path = "{}/build/install".format(info.get_absolute_path_to_workspace())
+
     checkout_update_env(
         "update_build_env",
         vars = {
-            "DYLD_FALLBACK_LIBRARY_PATH": "{}/lib".format(install_path),
-            "LT_SYS_LIBRARY_PATH": "{}/lib".format(install_path),
-            "PKG_CONFIG_PATH": "{}/lib/pkgconfig".format(install_path),
-            "LDFLAGS": "-Wl,-rpath,{}/lib".format(install_path),
+            "DYLD_FALLBACK_LIBRARY_PATH": "{}/lib".format(build_install_path),
+            "LT_SYS_LIBRARY_PATH": "{}/lib".format(build_install_path),
+            "PKG_CONFIG_PATH": "{}/lib/pkgconfig".format(build_install_path),
+            "LDFLAGS": "-Wl,-rpath,{}/lib".format(build_install_path),
             "V": "1",
         },
-        paths = ["{}/bin".format(install_path), "/usr/bin", "/bin"],
+        paths = ["{}/bin".format(build_install_path), "/usr/bin", "/bin"],
     )
-
-    build_install_path = "{}/build/install".format(info.get_absolute_path_to_workspace())
 
     gnu_add_repo(
         name,
