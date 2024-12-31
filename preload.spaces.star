@@ -3,9 +3,10 @@ Preload script capsules.
 """
 
 _workflows_path = info.get_path_to_capsule_workflows()
+_name = "capsules"
 
 checkout.add_repo(
-    rule = {"name": "capsules"},
+    rule = {"name": _name},
     repo = {
         "url": "https://github.com/work-spaces/capsules",
         "rev": "main",
@@ -15,15 +16,14 @@ checkout.add_repo(
     }
 )
 
-_name = "capsules"
-_source = "{}/{}".format(_workflows_path, _name)
+_source = "{}/{}/starlark".format(_workflows_path, _name)
 _star_rule_name = "{}_soft_link_star".format(_name)
 
 # Add loadable star modules to the @star folder under capsules
 checkout.add_soft_link_asset(
-    rule = {"name": _star_rule_name},
+    rule = {"name": _star_rule_name, "deps": [_name]},
     asset = {
-        "source": "{}/starlark".format(_source),
+        "source": _source,
         "destination": "@star/capsules",
     },
 )
