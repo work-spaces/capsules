@@ -19,7 +19,6 @@ gnu_add_create_capsule(
         "--with-manpage-format=normal",
         "--without-pkg-config",
         "--enable-pc-files",
-        '--with-pkg-config-libdir="{}/lib/pkgconfig"'.format(prefix),
         "--disable-mixed-case",
     ],
 )
