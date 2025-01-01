@@ -8,6 +8,9 @@ cmake_add_create_capsule(
     owner = "google",
     repo = "brotli",
     version = "1.1.0",
+    configure_args = [
+        "-DCMAKE_SKIP_INSTALL_RPATH=ON",
+    ]
 )
 
 
