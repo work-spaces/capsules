@@ -8,5 +8,6 @@ cmake_add_create_capsule(
     owner = "yaml",
     repo = "libyaml",
     version = "0.2.5",
+    rev = "0.2.5"
 )
 
