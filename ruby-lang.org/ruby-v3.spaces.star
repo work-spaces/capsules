@@ -38,10 +38,11 @@ def build_function(name, install_path, _args):
         "github.com",
         "quictls",
         "openssl-v3",
+        prefix = install_path,
     )
-    self_capsule_checkout("github.com", "yaml", "libyaml-v0")
-    self_gnu_capsule_checkout("readline-v8")
-    self_gnu_capsule_checkout("gmp-v6")
+    self_capsule_checkout("github.com", "yaml", "libyaml-v0", prefix = install_path)
+    self_gnu_capsule_checkout("readline-v8", prefix = install_path)
+    self_gnu_capsule_checkout("gmp-v6", prefix = install_path)
     checkout_add_archive(
         "ruby-source",
         url = "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.1.tar.gz",
@@ -96,7 +97,7 @@ def build_function(name, install_path, _args):
             "update_{}_shebang".format(binary_name),
             input_file = "{}/bin/{}".format(install_path, binary_name),
             new_shebang = "#!/usr/bin/env ruby",
-            deps = ["update_macos_rpaths"]
+            deps = ["update_macos_rpaths"],
         )
 
 name = "ruby"
