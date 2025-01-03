@@ -94,7 +94,7 @@ def build_function(name, install_path, _args):
     for binary_name in binaries:
         shebang_add_update(
             "update_{}_shebang".format(binary_name),
-            input_file = "{}/bin/{}".format(install_dir, binary_name),
+            input_file = "{}/bin/{}".format(install_path, binary_name),
             new_shebang = "#!/usr/bin/env ruby",
             deps = ["update_macos_rpaths"]
         )
