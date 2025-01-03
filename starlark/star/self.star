@@ -10,7 +10,7 @@ load(
 ORAS_URL = "ghcr.io/work-spaces"
 GH_DEPLOY_REPO = "https://github.com/work-spaces/capsules"
 
-def self_gnu_capsule_checkout(name, prefix, checkout_deps = []):
+def self_gnu_capsule_checkout(name, prefix, checkout_deps = [], globs = None):
     capsule_checkout(
         name,
         scripts = [
@@ -21,9 +21,10 @@ def self_gnu_capsule_checkout(name, prefix, checkout_deps = []):
         ],
         deps = checkout_deps,
         prefix = prefix,
+        globs = globs,
     )
 
-def self_capsule_checkout(domain, owner, name, prefix, checkout_deps = []):
+def self_capsule_checkout(domain, owner, name, prefix, checkout_deps = [], globs = None):
     capsule_checkout(
         name,
         scripts = [
@@ -33,4 +34,5 @@ def self_capsule_checkout(domain, owner, name, prefix, checkout_deps = []):
         ],
         deps = checkout_deps,
         prefix = prefix,
+        globs = globs,
     )

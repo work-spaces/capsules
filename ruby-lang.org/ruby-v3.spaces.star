@@ -33,16 +33,33 @@ def build_function(name, install_path, _args):
         install_path: path to install ruby
         _args: unused
     """
+
+    capsule_globs = ["+**", "-bin/**"]
     spaces_add("spaces0", "v0.11.11")
     self_capsule_checkout(
         "github.com",
         "quictls",
         "openssl-v3",
         prefix = install_path,
+        globs = capsule_globs,
     )
-    self_capsule_checkout("github.com", "yaml", "libyaml-v0", prefix = install_path)
-    self_gnu_capsule_checkout("readline-v8", prefix = install_path)
-    self_gnu_capsule_checkout("gmp-v6", prefix = install_path)
+    self_capsule_checkout(
+        "github.com",
+        "yaml",
+        "libyaml-v0",
+        prefix = install_path,
+        globs = capsule_globs,
+    )
+    self_gnu_capsule_checkout(
+        "readline-v8",
+        prefix = install_path,
+        globs = capsule_globs,
+    )
+    self_gnu_capsule_checkout(
+        "gmp-v6",
+        prefix = install_path,
+        globs = capsule_globs,
+    )
     checkout_add_archive(
         "ruby-source",
         url = "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.1.tar.gz",
@@ -69,6 +86,7 @@ def build_function(name, install_path, _args):
             "--with-openssl-dir={}".format(install_path),
             "--with-readline-dir={}".format(install_path),
         ],
+        install_path = install_path,
     )
     rpath_update_macos_install_dir(
         "update_macos_rpaths",
