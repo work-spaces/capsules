@@ -8,13 +8,20 @@ load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
 load("//@star/sdk/star/capsule.star", "capsule", "capsule_add_checkout_and_run")
 load("//@star/sdk/star/gnu.star", "gnu_add_configure_make_install")
 load("//@star/sdk/star/run.star", "run_add_target")
+load("//@star/sdk/star/rpath.star", "rpath_update_macos_install_dir")
+load("//@star/sdk/star/shebang.star", "shebang_add_update")
+load(
+    "//@star/sdk/star/checkout.star",
+    "checkout_add_archive",
+    "checkout_update_env",
+)
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load(
     "//@star/capsules/star/self.star",
     "GH_DEPLOY_REPO",
     "ORAS_URL",
+    "self_capsule_checkout",
     "self_gnu_capsule_checkout",
-    "self_capsule_checkout"
 )
 
 def build_function(name, install_path, _args):
@@ -30,7 +37,7 @@ def build_function(name, install_path, _args):
     self_capsule_checkout(
         "github.com",
         "quictls",
-        "openssl-v3"
+        "openssl-v3",
     )
     self_capsule_checkout("github.com", "yaml", "libyaml-v0")
     self_gnu_capsule_checkout("readline-v8")
@@ -60,7 +67,7 @@ def build_function(name, install_path, _args):
             "--with-libyaml-dir={}".format(install_path),
             "--with-openssl-dir={}".format(install_path),
             "--with-readline-dir={}".format(install_path),
-        ]
+        ],
     )
     rpath_update_macos_install_dir(
         "update_macos_rpaths",
@@ -68,8 +75,29 @@ def build_function(name, install_path, _args):
         deps = ["build_ruby"],
     )
     run_add_target(name, deps = ["update_macos_rpaths"])
-    
 
+    binaries = [
+        "bundle",
+        "bundler",
+        "erb",
+        "gem",
+        "irb",
+        "racc",
+        "rake",
+        "rbs",
+        "rdbg",
+        "rdoc",
+        "ri",
+        "syntax_suggest",
+        "typeprof",
+    ]
+    for binary_name in binaries:
+        shebang_add_update(
+            "update_{}_shebang".format(binary_name),
+            input_file = "{}/bin/{}".format(install_dir, binary_name),
+            new_shebang = "#!/usr/bin/env ruby",
+            deps = ["update_macos_rpaths"]
+        )
 
 name = "ruby"
 version = "3.4.1"
