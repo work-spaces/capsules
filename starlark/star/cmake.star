@@ -5,7 +5,8 @@ nghttp2 capsule
 """
 
 load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
-load("//@star/sdk/star/cmake.star", "cmake_add", "cmake_capsule_add_repo_checkout_and_run")
+load("//@star/sdk/star/cmake.star", "cmake_capsule_add_repo_checkout_and_run")
+load("//@star/packages/star/cmake.star", "cmake_add")
 load("//@star/sdk/star/capsule.star", "capsule")
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("self.star", "ORAS_URL", "GH_DEPLOY_REPO")
