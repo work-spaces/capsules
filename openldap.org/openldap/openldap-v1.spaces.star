@@ -16,7 +16,7 @@ load(
 )
 
 def build_function(name, install_path, _args):
-    spaces_add("spaces0", "v0.11.4")
+    spaces_add("spaces0", "v0.11.11")
 
     self_gnu_capsule_checkout("groff-v1", "sysroot")
 
