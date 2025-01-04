@@ -2,11 +2,9 @@
 curl capsule
 """
 
-load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
 load("//@star/sdk/star/capsule.star", "capsule", "capsule_add_checkout_and_run")
 load("//@star/sdk/star/gnu.star", "gnu_add_repo")
 load("//@star/sdk/star/checkout.star", "checkout_update_env")
-load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("//@star/packages/star/package.star", "package_add")
 load(
     "//@star/capsules/star/self.star",
