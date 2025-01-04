@@ -3,6 +3,7 @@ Preload script capsules.
 """
 
 _workflows_path = info.get_path_to_capsule_workflows()
+_name = "capsules"
 
 _source = "{}/{}/starlark".format(_workflows_path, _name)
 _star_rule_name = "{}_soft_link_star".format(_name)
