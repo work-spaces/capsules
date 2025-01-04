@@ -6,7 +6,7 @@ libxml2 capsule
 
 
 load("//@star/capsules/star/cmake.star", "cmake_add_create_capsule")
-
+load("//@star/capsules/star/gnu.star", "gnu_add_autotools_capsule")
 load("//@star/capsules/star/self.star", "self_gnu_capsule_checkout")
 
 def _checkout_function(install_path):
