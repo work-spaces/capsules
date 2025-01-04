@@ -5,17 +5,6 @@ Preload script capsules.
 _workflows_path = info.get_path_to_capsule_workflows()
 _name = "capsules"
 
-checkout.add_repo(
-    rule = {"name": _name},
-    repo = {
-        "url": "https://github.com/work-spaces/capsules",
-        "rev": "main",
-        "checkout": "Revision",
-        "clone": "Worktree",
-        "working_directory": _workflows_path,
-    }
-)
-
 _source = "{}/{}/starlark".format(_workflows_path, _name)
 _star_rule_name = "{}_soft_link_star".format(_name)
 
@@ -47,3 +36,15 @@ checkout.add_repo(
         "clone": "Worktree"
     }
 )
+
+
+checkout.add_repo(
+    rule = {"name": "@star/sources"},
+    repo = {
+        "url": "https://github.com/work-spaces/sources",
+        "rev": "main",
+        "checkout": "Revision",
+        "clone": "Worktree"
+    }
+)
+
