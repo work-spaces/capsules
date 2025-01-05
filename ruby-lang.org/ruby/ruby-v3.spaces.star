@@ -34,6 +34,8 @@ def build_function(name, install_path, _args):
         _args: unused
     """
 
+    env_rule = spaces_working_env()
+
     capsule_globs = ["+**", "-bin/**"]
     spaces_add("spaces0", "v0.11.11")
     self_capsule_checkout(
@@ -42,6 +44,7 @@ def build_function(name, install_path, _args):
         "openssl-v3",
         prefix = install_path,
         globs = capsule_globs,
+        checkout_deps = [env_rule],
     )
     self_capsule_checkout(
         "github.com",
@@ -49,16 +52,19 @@ def build_function(name, install_path, _args):
         "libyaml-v0",
         prefix = install_path,
         globs = capsule_globs,
+        checkout_deps = [env_rule],
     )
     self_gnu_capsule_checkout(
         "readline-v8",
         prefix = install_path,
         globs = capsule_globs,
+        checkout_deps = [env_rule],
     )
     self_gnu_capsule_checkout(
         "gmp-v6",
         prefix = install_path,
         globs = capsule_globs,
+        checkout_deps = [env_rule],
     )
     checkout_add_archive(
         "ruby-source",
@@ -132,4 +138,3 @@ capsule_add_checkout_and_run(
     build_function_args = {},
 )
 
-spaces_working_env()
