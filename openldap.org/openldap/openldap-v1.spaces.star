@@ -19,14 +19,17 @@ def build_function(name, install_path, _args):
     spaces_add("spaces0", "v0.11.11")
     env_rule = spaces_working_env()
 
-    self_gnu_capsule_checkout("groff-v1", "sysroot")
+    self_gnu_capsule_checkout(
+        "groff-v1",
+        "sysroot",
+        checkout_deps = [env_rule],
+    )
 
     gnu_add_repo(
         name,
         url = "https://git.openldap.org/openldap/openldap",
         rev = "OPENLDAP_REL_ENG_2_5_19",
         install_path = install_path,
-        checkout_deps = [env_rule],
     )
 
 name = "openldap"
