@@ -18,9 +18,9 @@ def _checkout_function(_install_path):
     cmake_add("cmake3", "v3.31.1")
     env_rule = spaces_working_env()
 
-    self_capsule_checkout("github.com", "google", "brotli-v1", "build/install", checkout_deps = [env_rule])
-    self_capsule_checkout("github.com", "ngtcp2", "nghttp3-v1", "build/install", checkout_deps = [env_rule])
-    self_capsule_checkout("github.com", "quictls", "openssl-v3", "build/install", checkout_deps = [env_rule])
+    self_capsule_checkout("github.com", "google", "brotli", "v1", "build/install", checkout_deps = [env_rule])
+    self_capsule_checkout("github.com", "ngtcp2", "nghttp3", "v1", "build/install", checkout_deps = [env_rule])
+    self_capsule_checkout("github.com", "quictls", "openssl", "v3", "build/install", checkout_deps = [env_rule])
 
 
 cmake_add_create_capsule(

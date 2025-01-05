@@ -5,7 +5,7 @@ Helper functions for GNU capsules
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("//@star/sources/star/gnu.star", "gnu_add_configure_make_install_from_source")
 load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
-load("self.star", "self_gnu_capsule_checkout", "ORAS_URL", "GH_DEPLOY_REPO")
+load("self.star", "GH_DEPLOY_REPO", "ORAS_URL", "self_gnu_capsule_checkout")
 load(
     "//@star/sdk/star/capsule.star",
     "capsule",
@@ -23,7 +23,9 @@ def gnu_add_autotools_capsule():
     spaces_add("spaces0", "v0.11.4")
     env_rule = spaces_working_env()
 
-    self_gnu_capsule_checkout("autotools-v2024", 
+    self_gnu_capsule_checkout(
+        "autotools",
+        "v2024",
         checkout_deps = [env_rule],
         prefix = "sysroot",
     )
@@ -93,16 +95,15 @@ def gnu_capsule_add_checkout_and_run(
         },
     )
 
-
 def _checkout_function(_install_path):
     gnu_add_autotools_capsule()
 
 def gnu_add_create_capsule(
-    name,
-    version,
-    checkout_function = _checkout_function,
-    configure_args = [],
-    owner = None):
+        name,
+        version,
+        checkout_function = _checkout_function,
+        configure_args = [],
+        owner = None):
     """
     Add the GNU capsule
 

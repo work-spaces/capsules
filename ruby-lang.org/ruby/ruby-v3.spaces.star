@@ -41,7 +41,8 @@ def build_function(name, install_path, _args):
     self_capsule_checkout(
         "github.com",
         "quictls",
-        "openssl-v3",
+        "openssl",
+        "v3",
         prefix = install_path,
         globs = capsule_globs,
         checkout_deps = [env_rule],
@@ -49,19 +50,22 @@ def build_function(name, install_path, _args):
     self_capsule_checkout(
         "github.com",
         "yaml",
-        "libyaml-v0",
+        "libyaml",
+        "v0",
         prefix = install_path,
         globs = capsule_globs,
         checkout_deps = [env_rule],
     )
     self_gnu_capsule_checkout(
-        "readline-v8",
+        "readline",
+        "v8",
         prefix = install_path,
         globs = capsule_globs,
         checkout_deps = [env_rule],
     )
     self_gnu_capsule_checkout(
-        "gmp-v6",
+        "gmp",
+        "v6",
         prefix = install_path,
         globs = capsule_globs,
         checkout_deps = [env_rule],
@@ -137,4 +141,3 @@ capsule_add_checkout_and_run(
     build_function = build_function,
     build_function_args = {},
 )
-

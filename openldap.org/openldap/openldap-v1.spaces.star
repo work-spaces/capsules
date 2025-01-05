@@ -20,7 +20,8 @@ def build_function(name, install_path, _args):
     env_rule = spaces_working_env()
 
     self_gnu_capsule_checkout(
-        "groff-v1",
+        "groff",
+        "v1",
         "sysroot",
         checkout_deps = [env_rule],
     )

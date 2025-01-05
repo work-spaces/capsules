@@ -11,13 +11,13 @@ load(
 ORAS_URL = "ghcr.io/work-spaces"
 GH_DEPLOY_REPO = "https://github.com/work-spaces/capsules"
 
-def self_gnu_capsule_checkout(name, prefix, checkout_deps = [], globs = None):
+def self_gnu_capsule_checkout(name, version, prefix, checkout_deps = [], globs = None):
     capsule_checkout(
         name,
         scripts = [
             "capsules/lock",
             "capsules/preload",
-            "capsules/ftp.gnu.org/{}".format(name),
+            "capsules/ftp.gnu.org/{}-{}".format(name, version),
         ],
         descriptor = capsule("ftp.gnu.org", name, name),
         deps = checkout_deps,
@@ -25,13 +25,13 @@ def self_gnu_capsule_checkout(name, prefix, checkout_deps = [], globs = None):
         globs = globs,
     )
 
-def self_capsule_checkout(domain, owner, name, prefix, checkout_deps = [], globs = None):
+def self_capsule_checkout(domain, owner, name, version, prefix, checkout_deps = [], globs = None):
     capsule_checkout(
         name,
         scripts = [
             "capsules/lock",
             "capsules/preload",
-            "capsules/{}/{}/{}".format(domain, owner, name),
+            "capsules/{}/{}/{}-{}".format(domain, owner, name, version),
         ],
         descriptor = capsule(domain, owner, name),
         deps = checkout_deps,

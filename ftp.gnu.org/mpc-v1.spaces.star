@@ -11,13 +11,15 @@ def _checkout_function(install_path):
     env_rule = gnu_add_autotools_capsule()
 
     self_gnu_capsule_checkout(
-        "gmp-v6",
+        "gmp",
+        "v6",
         prefix = install_path,
         checkout_deps = [env_rule],
     )
 
     self_gnu_capsule_checkout(
-        "mpfr-v4",
+        "mpfr",
+        "v4",
         prefix = install_path,
         checkout_deps = [env_rule],
     )
