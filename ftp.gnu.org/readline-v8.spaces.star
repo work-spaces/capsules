@@ -6,11 +6,12 @@ load("//@star/capsules/star/gnu.star", "gnu_add_autotools_capsule", "gnu_add_cre
 load("//@star/capsules/star/self.star", "self_gnu_capsule_checkout")
 
 def _checkout_function(install_path):
-    gnu_add_autotools_capsule()
+    env_rule = gnu_add_autotools_capsule()
 
     self_gnu_capsule_checkout(
         "ncurses-v6",
         prefix = install_path,
+        checkout_deps = [env_rule],
     )
 
 gnu_add_create_capsule(

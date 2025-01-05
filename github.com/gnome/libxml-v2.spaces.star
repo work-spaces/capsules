@@ -11,12 +11,13 @@ load("//@star/capsules/star/gnu.star", "gnu_add_autotools_capsule")
 load("//@star/capsules/star/self.star", "self_gnu_capsule_checkout")
 
 def _checkout_function(install_path):
-    gnu_add_autotools_capsule()
+    env_rule = gnu_add_autotools_capsule()
     cmake_add("cmake3", "v3.31.1")
 
     self_gnu_capsule_checkout(
         "libiconv-v1",
         prefix = install_path,
+        checkout_deps = [env_rule],
     ) 
 
 cmake_add_create_capsule(
