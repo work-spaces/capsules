@@ -17,6 +17,7 @@ load(
 
 def build_function(name, install_path, _args):
     spaces_add("spaces0", "v0.11.11")
+    env_rule = spaces_working_env()
 
     self_gnu_capsule_checkout("groff-v1", "sysroot")
 
@@ -25,6 +26,7 @@ def build_function(name, install_path, _args):
         url = "https://git.openldap.org/openldap/openldap",
         rev = "OPENLDAP_REL_ENG_2_5_19",
         install_path = install_path,
+        checkout_deps = [env_rule],
     )
 
 name = "openldap"
@@ -40,5 +42,3 @@ capsule_add_checkout_and_run(
     build_function = build_function,
     build_function_args = {},
 )
-
-spaces_working_env()
