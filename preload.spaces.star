@@ -2,6 +2,8 @@
 Preload script capsules.
 """
 
+info.set_max_queue_count(1)
+
 _workflows_path = info.get_path_to_capsule_workflows()
 _name = "capsules"
 
