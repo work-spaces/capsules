@@ -4,7 +4,7 @@ Functions to using
 
 load(
     "//@star/sdk/star/capsule.star",
-    "capsule_checkout"
+    "capsule_checkout",
     "capsule"
 )
 
