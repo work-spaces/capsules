@@ -14,6 +14,6 @@ CHECKOUT_PATH = "{}/{}".format(WORKSPACE, info_get_path_to_checkout())
 
 checkout_add_soft_link_asset(
     "star",
-    source = CHECKOUT_PATH,
+    source = "{}/star".format(CHECKOUT_PATH),
     destination = "@star/capsules/star",
 )
