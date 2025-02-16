@@ -20,6 +20,7 @@ load(
     "//@star/capsules/star/self.star",
     "GH_DEPLOY_REPO",
     "ORAS_URL",
+    "SELF_SPACES_VERSION",
     "self_capsule_checkout",
     "self_gnu_capsule_checkout",
 )
@@ -37,7 +38,7 @@ def build_function(name, install_path, _args):
     env_rule = spaces_working_env()
 
     capsule_globs = ["+**", "-bin/**"]
-    spaces_add("spaces0", "v0.11.11")
+    spaces_add("spaces0", SELF_SPACES_VERSION)
     self_capsule_checkout(
         "github.com",
         "quictls",

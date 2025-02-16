@@ -5,7 +5,13 @@ Helper functions for GNU capsules
 load("//@star/packages/star/spaces-cli.star", "spaces_add")
 load("//@star/sources/star/gnu.star", "gnu_add_configure_make_install_from_source")
 load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
-load("self.star", "GH_DEPLOY_REPO", "ORAS_URL", "self_gnu_capsule_checkout")
+load(
+    "self.star",
+    "GH_DEPLOY_REPO",
+    "ORAS_URL",
+    "SELF_SPACES_VERSION",
+    "self_gnu_capsule_checkout",
+)
 load(
     "//@star/sdk/star/capsule.star",
     "capsule",
@@ -20,7 +26,7 @@ def gnu_add_autotools_capsule():
         The environment rule
     """
 
-    spaces_add("spaces0", "v0.11.4")
+    spaces_add("spaces0", SELF_SPACES_VERSION)
     env_rule = spaces_working_env()
 
     self_gnu_capsule_checkout(

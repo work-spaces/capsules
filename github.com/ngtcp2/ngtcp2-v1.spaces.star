@@ -11,10 +11,11 @@ load("//@star/packages/star/cmake.star", "cmake_add")
 load(
     "//@star/capsules/star/self.star",
     "self_capsule_checkout",
+    "SELF_SPACES_VERSION",
 )
 
 def _checkout_function(_install_path):
-    spaces_add("spaces0", "v0.11.4")
+    spaces_add("spaces0", SELF_SPACES_VERSION)
     cmake_add("cmake3", "v3.31.1")
     env_rule = spaces_working_env()
 

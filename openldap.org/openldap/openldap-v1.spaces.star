@@ -12,11 +12,12 @@ load(
     "//@star/capsules/star/self.star",
     "GH_DEPLOY_REPO",
     "ORAS_URL",
+    "SELF_SPACES_VERSION",
     "self_gnu_capsule_checkout",
 )
 
 def build_function(name, install_path, _args):
-    spaces_add("spaces0", "v0.11.11")
+    spaces_add("spaces0", SELF_SPACES_VERSION)
     env_rule = spaces_working_env()
 
     self_gnu_capsule_checkout(
