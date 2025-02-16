@@ -6,6 +6,7 @@ load(
     "//@star/sdk/star/capsule.star",
     "capsule_checkout_add_repo",
     "capsule_publish",
+    "capsule_get_workspace_path"
 )
 
 load("//@star/capsules/star/capsules.star", CAPSULE = "GITHUB_COM_MADLER_ZLIB_V1")
