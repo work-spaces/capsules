@@ -2,7 +2,6 @@
 
 OpenSSL capsule (quictls version)
 
-"""
 
 load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
 load("//@star/sdk/star/capsule.star", "capsule", "capsule_add_checkout_and_run")
@@ -47,3 +46,5 @@ capsule_add_checkout_and_run(
 )
 
 spaces_working_env()
+
+"""

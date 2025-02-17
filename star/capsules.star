@@ -38,11 +38,12 @@ def _declare_gnu_capsule(
         rev = None,
         owner = None,
         domain = "ftp.gnu.org",
-        oras_url = ORAS_URAL,
+        oras_url = ORAS_URL,
         gh_deploy_repo = GH_DEPLOY_REPO):
+    EFFECTIVE_OWNER = owner if owner != None else repo
     return capsule_declare(
         domain = domain,
-        owner = owner,
+        owner = EFFECTIVE_OWNER,
         repo = repo,
         version = version,
         source_revision = rev,
@@ -51,10 +52,10 @@ def _declare_gnu_capsule(
     )
 
 FTP_GNU_ORG_AUTOTOOLS_V2024 = _declare_gnu_capsule("autotools", "2024", oras_url = None, gh_deploy_repo = None)
-FTP_GNU_ORG_GETTEXT_V0 = _declare_gnu_capsule("gettest", "0.22")
+FTP_GNU_ORG_GETTEXT_V0 = _declare_gnu_capsule("gettext", "0.22")
 FTP_GNU_ORG_GMP_V6 = _declare_gnu_capsule("gmp", "6.3.0")
 FTP_GNU_ORG_GROFF_V1 = _declare_gnu_capsule("groff", "1.23.0")
-FTP_GNU_ORG_LIBICONV_V1 = _declare_gnu_capsule("groff", "1.17")
+FTP_GNU_ORG_LIBICONV_V1 = _declare_gnu_capsule("libiconv", "1.17")
 FTP_GNU_ORG_LIBIDN_V2 = _declare_gnu_capsule("libidn2", "2.3.7", owner = "libidn")
 FTP_GNU_ORG_M4_V1 = _declare_gnu_capsule("m4", "1.4.19")
 FTP_GNU_ORG_MPC_V1 = _declare_gnu_capsule("mpc", "1.3.1")
@@ -62,7 +63,7 @@ FTP_GNU_ORG_MPFR_V4 = _declare_gnu_capsule("mpfr", "4.2.1")
 FTP_GNU_ORG_NCURSES_V6 = _declare_gnu_capsule("ncurses", "6.5")
 FTP_GNU_ORG_READLINE_V8 = _declare_gnu_capsule("readline", "8.2")
 
-GITHUB_COM_FACEBOOK_CURL_V8 = _declare_github_capsule("curl", "curl", "8.11.1")
+GITHUB_COM_CURL_CURL_V8 = _declare_github_capsule("curl", "curl", "8.11.1")
 GITHUB_COM_FACEBOOK_ZSTD_V1 = _declare_github_capsule("facebook", "zstd", "1.5.5")
 GITHUB_COM_GNOME_LIBXML_V2 = _declare_github_capsule("gnome", "libxml2", "2.13.5")
 GITHUB_COM_GOOGLE_BROTLI_V1 = _declare_github_capsule("google", "brotli", "1.1.0")

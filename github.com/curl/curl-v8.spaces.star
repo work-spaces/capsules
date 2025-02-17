@@ -1,6 +1,6 @@
 """
 curl capsule
-"""
+
 
 load("//@star/sdk/star/capsule.star", "capsule", "capsule_add_checkout_and_run")
 load("//@star/sdk/star/gnu.star", "gnu_add_repo")
@@ -78,3 +78,4 @@ capsule_add_checkout_and_run(
     build_function = _build_function,
     build_function_args = {},
 )
+"""

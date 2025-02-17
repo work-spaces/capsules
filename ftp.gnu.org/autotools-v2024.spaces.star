@@ -3,7 +3,7 @@
 Autotools capsule workflow. This will install a copy of autotools in the capsules folder
 in the spaces store.
 
-"""
+
 
 load(
     "//@star/sdk/star/spaces-env.star",
@@ -37,3 +37,4 @@ capsule_add_checkout_and_run(
     build_function = _build_function,
     build_function_args = {},
 )
+"""

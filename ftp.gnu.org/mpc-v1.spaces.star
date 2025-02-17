@@ -2,7 +2,6 @@
 
 GNU capsule
 
-"""
 
 load(
     "//@star/capsules/star/capsules.star",
@@ -19,3 +18,4 @@ gnu_add_build_install_publish(
         FTP_GNU_ORG_MPFR_V4,
     ],
 )
+"""

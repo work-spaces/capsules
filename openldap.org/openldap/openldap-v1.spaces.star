@@ -2,7 +2,7 @@
 
 Open LDAP capsule
 
-"""
+
 
 
 load("//@star/capsules/star/capsules.star", 
@@ -13,3 +13,5 @@ gnu_add_repo_build_install_publish(
     CAPSULE,
     capsule_deps = [FTP_GNU_ORG_GROFF_V1],
     rev = "OPENLDAP_REL_ENG_2_5_19")
+
+"""
