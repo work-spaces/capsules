@@ -35,9 +35,8 @@ load(
     "GITHUB_COM_QUICTLS_OPENSSL_V2",
     "GITHUB_COM_TUKAANI_PROJECT_XZ_V5",
     "GITHUB_COM_YAML_LIBYAML_V0",
-    "OPENLDAP_ORG_OPENLDAP_OPENLDAP_V1",
     #"RUBY_LANG_ORG_RUBY_RUBY_V3",
-)   
+)
 load("star/cmake.star", "cmake_add_build_install_publish")
 load("star/gnu.star", "gnu_add_build_install_publish")
 
@@ -77,17 +76,10 @@ gnu_add_build_install_publish(FTP_GNU_ORG_LIBIDN_V2)
 gnu_add_build_install_publish(FTP_GNU_ORG_M4_V1)
 gnu_add_build_install_publish(
     FTP_GNU_ORG_MPC_V1,
-    capsule_deps = [
-        FTP_GNU_ORG_GMP_V6,
-        FTP_GNU_ORG_MPFR_V4,
-    ],
 )
 
 gnu_add_build_install_publish(
     FTP_GNU_ORG_MPFR_V4,
-    capsule_deps = [
-        FTP_GNU_ORG_GMP_V6,
-    ],
 )
 
 gnu_add_build_install_publish(
@@ -118,9 +110,7 @@ cmake_add_build_install_publish(
     checkout_submodules = True,
 )
 
-cmake_add_build_install_publish(
-    GITHUB_COM_GNOME_LIBXML_V2,
-    capsule_deps = [FTP_GNU_ORG_LIBICONV_V1])
+cmake_add_build_install_publish(GITHUB_COM_GNOME_LIBXML_V2)
 
 cmake_add_build_install_publish(GITHUB_COM_GOOGLE_BROTLI_V1)
 cmake_add_build_install_publish(GITHUB_COM_LZ4_LZ4_V1)
@@ -129,24 +119,22 @@ cmake_add_build_install_publish(GITHUB_COM_MADLER_ZLIB_V1)
 
 cmake_add_build_install_publish(
     GITHUB_COM_NGHTTP2_NGHTTP2_V1,
-    checkout_submodules = True)
+    checkout_submodules = True,
+)
 
 cmake_add_build_install_publish(
     GITHUB_COM_NGTCP2_NGHTTP3_V1,
-    checkout_submodules = True)
+    checkout_submodules = True,
+)
 
 cmake_add_build_install_publish(
     GITHUB_COM_NGTCP2_NGTCP2_V1,
     checkout_submodules = True,
-    capsule_deps = [
-        GITHUB_COM_GOOGLE_BROTLI_V1,
-        GITHUB_COM_NGTCP2_NGHTTP3_V1,
-        GITHUB_COM_QUICTLS_OPENSSL_V2
-    ])
+)
 
 run_add_target(
     capsule_get_run_name(GITHUB_COM_QUICTLS_OPENSSL_V2),
-    deps = []
+    deps = [],
 )
 
 cmake_add_build_install_publish(

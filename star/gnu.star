@@ -19,7 +19,6 @@ load(
 
 def gnu_add_build_install_publish(
         capsule,
-        capsule_deps = [],
         configure_args = [],
         make_args = []):
     """
@@ -27,11 +26,10 @@ def gnu_add_build_install_publish(
 
     Args:
         capsule: The capsule
-        capsule_deps: The dependencies as a list of capsule dicts
         configure_args: The configure arguments
         make_args: The make arguments
     """
-    DEPS = capsule_get_deps(capsule_deps)
+    DEPS = capsule_get_deps(capsule)
     BUILD_RULE = capsule_get_rule_name(capsule, "build")
     CHECKOUT_RULE_TYPE = capsule_get_checkout_type(capsule, BUILD_RULE)
     gnu_add_configure_make_install_from_source(
