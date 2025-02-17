@@ -11,7 +11,7 @@ load(
     "capsule_checkout_add_repo",
     "capsule_publish",
     "capsule_get_workspace_path",
-    "capsule_get_run_name",
+    "capsule_get_install_path",
     "capsule_get_rule_name",
     "capsule_can_publish",
     "capsule_get_deps"
@@ -38,7 +38,7 @@ def cmake_add_build_install_publish(
         checkout_submodules: Whether to checkout submodules
     """
     DEPS = capsule_get_deps(capsule_deps)
-    BUILD_RULE = capsule_get_rule_name(capsule, "build")
+    BUILD_RULE = capsule_get_rule_name(capsule, "cmake")
     capsule_checkout_add_repo(capsule, BUILD_RULE)
     WORKSPACE_SOURCE_DIRECTORY = capsule_get_workspace_path(capsule)
     EFFECTIVE_SOURCE_DIRECTORY = WORKSPACE_SOURCE_DIRECTORY if relative_source_directory == None else "{}/{}".format(WORKSPACE_SOURCE_DIRECTORY, relative_source_directory)
@@ -59,6 +59,7 @@ def cmake_add_build_install_publish(
         source_directory = EFFECTIVE_SOURCE_DIRECTORY,
         configure_args = configure_args,
         build_args = build_args,
+        install_path = capsule_get_install_path(capsule),
         deps = DEPS + SUBMODULE_DEPS,
     )
     if capsule_can_publish(capsule):
