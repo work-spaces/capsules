@@ -74,7 +74,7 @@ GITHUB_COM_NGTCP2_NGHTTP3_V1 = _declare_github_capsule("ngtcp2", "nghttp3", "1.6
 GITHUB_COM_NGTCP2_NGTCP2_V1 = _declare_github_capsule("ngtcp2", "ngtcp2", "1.9.1")
 GITHUB_COM_QUICTLS_OPENSSL_V2 = _declare_github_capsule("quictls", "openssl", "2.5.19")
 GITHUB_COM_TUKAANI_PROJECT_XZ_V5 = _declare_github_capsule("tukaani-project", "xz", "5.6.3")
-GITHUB_COM_YAML_LIBYAML_V0 = _declare_github_capsule("yaml", "libyaml", "0.2.5")
+GITHUB_COM_YAML_LIBYAML_V0 = _declare_github_capsule("yaml", "libyaml", "0.2.5", rev = "0.2.5")
 
 OPENLDAP_ORG_OPENLDAP_OPENLDAP_V1 = _declare_capsule("openldap.org", "openldap", "openldap", "0.2.5")
 RUBY_LANG_ORG_RUBY_RUBY_V3 = _declare_capsule("ruby-land.org", "ruby", "ruby", "3.4.1")
