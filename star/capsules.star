@@ -71,12 +71,12 @@ GITHUB_COM_LZ4_LZ4_V1 = _declare_github_capsule("lz4", "lz4", "1.10.0")
 GITHUB_COM_MADLER_ZLIB_V1 = _declare_github_capsule("madler", "zlib", "1.3.1")
 GITHUB_COM_NGHTTP2_NGHTTP2_V1 = _declare_github_capsule("nghttp2", "nghttp2", "1.64.0")
 GITHUB_COM_NGTCP2_NGHTTP3_V1 = _declare_github_capsule("ngtcp2", "nghttp3", "1.6.0")
+GITHUB_COM_QUICTLS_OPENSSL_V2 = _declare_github_capsule("quictls", "openssl", "2.5.19")
 GITHUB_COM_NGTCP2_NGTCP2_V1 = _declare_github_capsule("ngtcp2", "ngtcp2", "1.9.1", deps = [
     GITHUB_COM_GOOGLE_BROTLI_V1,
     GITHUB_COM_NGTCP2_NGHTTP3_V1,
     GITHUB_COM_QUICTLS_OPENSSL_V2,
 ])
-GITHUB_COM_QUICTLS_OPENSSL_V2 = _declare_github_capsule("quictls", "openssl", "2.5.19")
 GITHUB_COM_TUKAANI_PROJECT_XZ_V5 = _declare_github_capsule("tukaani-project", "xz", "5.6.3")
 GITHUB_COM_YAML_LIBYAML_V0 = _declare_github_capsule("yaml", "libyaml", "0.2.5", rev = "0.2.5")
 
