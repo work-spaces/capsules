@@ -1,59 +1,57 @@
 """
 
-nghttp2 capsule
+CMake helpers
 
 """
 
-load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
-load("//@star/sdk/star/cmake.star", "cmake_capsule_add_repo_checkout_and_run")
-load("//@star/packages/star/cmake.star", "cmake_add")
-load("//@star/sdk/star/capsule.star", "capsule")
-load("//@star/packages/star/spaces-cli.star", "spaces_add")
-load("self.star", "ORAS_URL", "GH_DEPLOY_REPO", "SELF_SPACES_VERSION")
+load("//@star/sdk/star/cmake.star", "cmake_add_configure_build_install")
+load(
+    "//@star/sdk/star/capsule.star",
+    "capsule_checkout_add_repo",
+    "capsule_publish",
+    "capsule_get_workspace_path",
+    "capsule_get_run_name",
+    "capsule_get_rule_name",
+    "capsule_can_publish"
+)
 
-def _checkout_function(_install_path):
-    spaces_add("spaces0", SELF_SPACES_VERSION)
-    cmake_add("cmake3", "v3.31.1")
-    spaces_working_env()
-
-
-def cmake_add_create_capsule(
-    domain,
-    owner,
-    repo,
-    version,
-    rev = None,
-    checkout_function = _checkout_function,
+def cmake_add_build_install_publish(
+    capsule,
+    capsule_deps = [],
     configure_args = [],
+    build_args = [],
     relative_source_directory = None,
     checkout_submodules = False):
     """
-    Add the cmake capsule
+    Add add rules to build and install a capsule using CMake.
+
+    The source code checkout will be skipped if the binary release is available.
 
     Args:
-        domain: The domain of the repository
-        owner: The owner of the repository
-        repo: The repository name
-        version: The version of the repository
-        rev: The revision of the repository
-        checkout_function: The checkout function
-        configure_args: The arguments to pass to the configure script
-        checkout_submodules: Checkout the submodules
+        capsule: The capsule name
+        capsule_deps: The capsule dependencies
+        configure_args: The configure arguments
+        build_args: The build arguments
         relative_source_directory: The relative source directory
+        checkout_submodules: Whether to checkout submodules
     """
-
-    effective_rev = rev if rev else "v{}".format(version)
-
-    cmake_capsule_add_repo_checkout_and_run(
-        repo,
-        capsule = capsule(domain, owner, repo),
-        rev = effective_rev,
-        version = version,
-        oras_url = ORAS_URL,
-        gh_deploy_repo = GH_DEPLOY_REPO,
-        checkout_function = checkout_function,
+    DEPS = [capsule_get_run_name(dep) for dep in capsule_deps]
+    BUILD_RULE = capsule_get_rule_name(capsule, "build")
+    capsule_checkout_add_repo(capsule, BUILD_RULE)
+    WORKSPACE_SOURCE_DIRECTORY = capsule_get_workspace_path(capsule)
+    EFFECTIVE_SOURCE_DIRECTORY = WORKSPACE_SOURCE_DIRECTORY if relative_source_directory == None else "{}/{}".format(WORKSPACE_SOURCE_DIRECTORY, relative_source_directory)
+    cmake_add_configure_build_install(
+        BUILD_RULE,
+        source_directory = EFFECTIVE_SOURCE_DIRECTORY,
+        configure_args = configure_args,
+        build_args = build_args,
+        deps = DEPS,
         checkout_submodules = checkout_submodules,
-        relative_source_directory = relative_source_directory,
-        configure_args = configure_args
     )
+    if capsule_can_publish(capsule):
+        capsule_publish(capsule, deps = [BUILD_RULE])
+
+
+
+
 

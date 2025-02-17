@@ -4,17 +4,16 @@ GNU capsule
 
 """
 
-load("//@star/capsules/star/gnu.star", "gnu_add_autotools_capsule", "gnu_add_create_capsule")
-load("//@star/capsules/star/self.star", "self_gnu_capsule_checkout")
+load(
+    "//@star/capsules/star/capsules.star",
+    "FTP_GNU_ORG_GMP_V6",
+    CAPSULE = "FTP_GNU_ORG_MPFR_V4",
+)
+load("//@star/capsules/star/gnu.star", "gnu_add_build_install_publish")
 
-def _checkout_function(install_path):
-    env_rule = gnu_add_autotools_capsule()
-
-    self_gnu_capsule_checkout(
-        "gmp",
-        "v6",
-        prefix = install_path,
-        checkout_deps = [env_rule],
-    )
-
-gnu_add_create_capsule("mpfr", "4.2.1", checkout_function = _checkout_function)
+gnu_add_build_install_publish(
+    CAPSULE,
+    capsule_deps = [
+        FTP_GNU_ORG_GMP_V6,
+    ],
+)

@@ -4,31 +4,19 @@ ngtcp2 capsule
 
 """
 
-load("//@star/capsules/star/cmake.star", "cmake_add_create_capsule")
-load("//@star/sdk/star/spaces-env.star", "spaces_working_env")
-load("//@star/packages/star/spaces-cli.star", "spaces_add")
-load("//@star/packages/star/cmake.star", "cmake_add")
+
 load(
-    "//@star/capsules/star/self.star",
-    "self_capsule_checkout",
-    "SELF_SPACES_VERSION",
-)
-
-def _checkout_function(_install_path):
-    spaces_add("spaces0", SELF_SPACES_VERSION)
-    cmake_add("cmake3", "v3.31.1")
-    env_rule = spaces_working_env()
-
-    self_capsule_checkout("github.com", "google", "brotli", "v1", "build/install", checkout_deps = [env_rule])
-    self_capsule_checkout("github.com", "ngtcp2", "nghttp3", "v1", "build/install", checkout_deps = [env_rule])
-    self_capsule_checkout("github.com", "quictls", "openssl", "v3", "build/install", checkout_deps = [env_rule])
-
-
-cmake_add_create_capsule(
-    domain = "github.com",
-    owner = "ngtcp2",
-    repo = "ngtcp2",
-    version = "1.9.1",
-    checkout_function = _checkout_function,
-    checkout_submodules = True
-)
+    "//@star/capsules/star/capsules.star", 
+    "GITHUB_COM_GOOGLE_BROTLI_V1",
+    "GITHUB_COM_NGTCP2_NGHTTP3_V1",
+    "GITHUB_COM_QUICTLS_OPENSSL_V2",
+    CAPSULE = "GITHUB_COM_NGTCP2_NGTCP2_V1")
+load("//@star/capsules/star/cmake.star", "cmake_add_build_install_publish")
+cmake_add_build_install_publish(
+    CAPSULE,
+    checkout_submodules = True,
+    capsule_deps = [
+        GITHUB_COM_GOOGLE_BROTLI_V1,
+        GITHUB_COM_NGTCP2_NGHTTP3_V1,
+        GITHUB_COM_QUICTLS_OPENSSL_V2
+    ])

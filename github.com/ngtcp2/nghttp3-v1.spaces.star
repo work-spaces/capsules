@@ -4,12 +4,9 @@ nghttp3 capsule
 
 """
 
-load("//@star/capsules/star/cmake.star", "cmake_add_create_capsule")
-cmake_add_create_capsule(
-    domain = "github.com",
-    owner = "ngtcp2",
-    repo = "nghttp3",
-    version = "1.6.0",
-    checkout_submodules = True
-)
+load("//@star/capsules/star/capsules.star", CAPSULE = "GITHUB_COM_NGTCP2_NGHTTP3_V1")
+load("//@star/capsules/star/cmake.star", "cmake_add_build_install_publish")
+cmake_add_build_install_publish(
+    CAPSULE,
+    checkout_submodules = True)
 
