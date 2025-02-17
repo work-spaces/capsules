@@ -33,7 +33,7 @@ def gnu_add_build_install_publish(
     """
     DEPS = capsule_get_deps(capsule_deps)
     BUILD_RULE = capsule_get_rule_name(capsule, "build")
-    capsule_checkout_add_repo(capsule, BUILD_RULE)
+    CHECKOUT_RULE_TYPE = capsule_get_checkout_type(capsule, BUILD_RULE)
     gnu_add_configure_make_install_from_source(
         BUILD_RULE,
         owner = capsule_get_owner(capsule),
@@ -42,6 +42,7 @@ def gnu_add_build_install_publish(
         install_path = capsule_get_install_path(capsule),
         configure_args = configure_args,
         make_args = make_args,
+        checkout_rule_type = CHECKOUT_RULE_TYPE,
         deps = DEPS,
     )
 
