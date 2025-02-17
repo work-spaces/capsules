@@ -53,12 +53,12 @@ FTP_GNU_ORG_GROFF_V1 = _declare_gnu_capsule("groff", "1.23.0")
 FTP_GNU_ORG_LIBICONV_V1 = _declare_gnu_capsule("libiconv", "1.17")
 FTP_GNU_ORG_LIBIDN_V2 = _declare_gnu_capsule("libidn2", "2.3.7", owner = "libidn")
 FTP_GNU_ORG_M4_V1 = _declare_gnu_capsule("m4", "1.4.19")
+FTP_GNU_ORG_MPFR_V4 = _declare_gnu_capsule("mpfr", "4.2.1", deps = [
+    FTP_GNU_ORG_GMP_V6,
+])
 FTP_GNU_ORG_MPC_V1 = _declare_gnu_capsule("mpc", "1.3.1", deps = [
     FTP_GNU_ORG_GMP_V6,
     FTP_GNU_ORG_MPFR_V4,
-])
-FTP_GNU_ORG_MPFR_V4 = _declare_gnu_capsule("mpfr", "4.2.1", deps = [
-    FTP_GNU_ORG_GMP_V6,
 ])
 FTP_GNU_ORG_NCURSES_V6 = _declare_gnu_capsule("ncurses", "6.5")
 FTP_GNU_ORG_READLINE_V8 = _declare_gnu_capsule("readline", "8.2")
