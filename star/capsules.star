@@ -16,7 +16,7 @@ def _declare_capsule(domain, owner, repo, version, rev = None):
         owner = owner,
         repo = repo,
         version = version,
-        source_revision = rev,
+        rev = rev,
         oras_url = ORAS_URL,
         gh_deploy_repo = GH_DEPLOY_REPO,
     )
@@ -27,7 +27,7 @@ def _declare_github_capsule(owner, repo, version, rev = None):
         owner = owner,
         repo = repo,
         version = version,
-        source_revision = rev,
+        rev = rev,
         oras_url = ORAS_URL,
         gh_deploy_repo = GH_DEPLOY_REPO,
     )
@@ -44,9 +44,10 @@ def _declare_gnu_capsule(
     return capsule_declare(
         domain = domain,
         owner = EFFECTIVE_OWNER,
+        source_directory = "{}/{}-{}".format(domain, repo, version),
         repo = repo,
         version = version,
-        source_revision = rev,
+        rev = rev,
         oras_url = oras_url,
         gh_deploy_repo = gh_deploy_repo,
     )
