@@ -5,7 +5,7 @@ Helper functions for GNU capsules
 load("//@star/sources/star/gnu.star", "gnu_add_configure_make_install_from_source")
 load(
     "//@star/sdk/star/capsule.star",
-    "capsule_checkout_add_repo",
+    "capsule_get_checkout_type",
     "capsule_get_install_path",
     "capsule_get_owner",
     "capsule_get_repo",
