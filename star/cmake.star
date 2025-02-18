@@ -5,6 +5,7 @@ CMake helpers
 """
 
 load("//@star/sdk/star/cmake.star", "cmake_add_configure_build_install")
+load("//@star/sdk/star/chekout.star", "CHECKOUT_TYPE_OPTIONAL")
 load("//@star/sdk/star/run.star", "run_add_exec")
 load(
     "//@star/sdk/star/capsule.star",
@@ -39,7 +40,7 @@ def cmake_add_build_install_publish(
     """
     DEPS = capsule_get_deps(capsule)
     BUILD_RULE = capsule_get_rule_name(capsule, "cmake")
-    capsule_checkout_add_repo(capsule, BUILD_RULE)
+    CHECKOUT_RULE_TYPE = capsule_checkout_add_repo(capsule, BUILD_RULE)
     WORKSPACE_SOURCE_DIRECTORY = capsule_get_workspace_path(capsule)
     EFFECTIVE_SOURCE_DIRECTORY = WORKSPACE_SOURCE_DIRECTORY if relative_source_directory == None else "{}/{}".format(WORKSPACE_SOURCE_DIRECTORY, relative_source_directory)
     PREFIX_PATHS = capsule_get_prefix_paths(capsule)
@@ -54,18 +55,19 @@ def cmake_add_build_install_publish(
         )
         SUBMODULE_DEPS = [SUBMODULE_RULE]
 
-    cmake_add_configure_build_install(
-        BUILD_RULE,
-        source_directory = EFFECTIVE_SOURCE_DIRECTORY,
-        build_directory = capsule_get_build_path(capsule),
-        prefix_paths = PREFIX_PATHS,
-        configure_args = configure_args,
-        build_args = build_args,
-        install_path = capsule_get_install_path(capsule),
-        deps = DEPS + SUBMODULE_DEPS,
-    )
-    if capsule_can_publish(capsule):
-        capsule_publish(capsule, deps = [BUILD_RULE])
+    if CHECKOUT_RULE_TYPE != CHECKOUT_TYPE_OPTIONAL:
+        cmake_add_configure_build_install(
+            BUILD_RULE,
+            source_directory = EFFECTIVE_SOURCE_DIRECTORY,
+            build_directory = capsule_get_build_path(capsule),
+            prefix_paths = PREFIX_PATHS,
+            configure_args = configure_args,
+            build_args = build_args,
+            install_path = capsule_get_install_path(capsule),
+            deps = DEPS + SUBMODULE_DEPS,
+        )
+        if capsule_can_publish(capsule):
+            capsule_publish(capsule, deps = [BUILD_RULE])
 
 
 

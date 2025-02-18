@@ -44,6 +44,7 @@ def _declare_gnu_capsule(
         rev = rev,
         oras_url = oras_url,
         gh_deploy_repo = gh_deploy_repo,
+        capsule_deps = deps,
     )
 
 FTP_GNU_ORG_AUTOTOOLS_V2024 = _declare_gnu_capsule("autotools", "2024", oras_url = None, gh_deploy_repo = None)
