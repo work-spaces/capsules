@@ -5,7 +5,7 @@ CMake helpers
 """
 
 load("//@star/sdk/star/cmake.star", "cmake_add_configure_build_install")
-load("//@star/sdk/star/chekout.star", "CHECKOUT_TYPE_OPTIONAL")
+load("//@star/sdk/star/checkout.star", "CHECKOUT_TYPE_OPTIONAL")
 load("//@star/sdk/star/run.star", "run_add_exec")
 load(
     "//@star/sdk/star/capsule.star",
