@@ -6,9 +6,9 @@ load("//@star/sdk/star/checkout.star", "checkout_add_soft_link_asset")
 load("//@star/sdk/star/run.star", "run_add_target")
 load("//@star/sdk/star/capsule.star", "capsule_get_run_name")
 load(
-    "//@star/sdk/star/info.star",
-    "info_get_absolute_path_to_workspace",
-    "info_get_path_to_checkout",
+    "//@star/sdk/star/ws.star",
+    "workspace_get_absolute_path",
+    "workspace_get_path_to_checkout",
 )
 load(
     "star/capsules.star",
@@ -40,8 +40,8 @@ load(
 load("star/cmake.star", "cmake_add_build_install_publish")
 load("star/gnu.star", "gnu_add_build_install_publish")
 
-WORKSPACE = info_get_absolute_path_to_workspace()
-CHECKOUT_PATH = "{}/{}".format(WORKSPACE, info_get_path_to_checkout())
+WORKSPACE = workspace_get_absolute_path()
+CHECKOUT_PATH = "{}/{}".format(WORKSPACE, workspace_get_path_to_checkout())
 
 checkout_add_soft_link_asset(
     "star",
@@ -146,7 +146,7 @@ cmake_add_build_install_publish(
 
 cmake_add_build_install_publish(GITHUB_COM_YAML_LIBYAML_V0)
 
-_ignore = """
+_IGNORE = """
 gnu_add_repo_build_install_publish(
     OPENLDAP_ORG_OPENLDAP_OPENLDAP_V1,
     capsule_deps = [FTP_GNU_ORG_GROFF_V1],
