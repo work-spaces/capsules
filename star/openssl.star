@@ -8,6 +8,9 @@ load(
     "run_add_target"
 )
 
+load("//@star/sdk/star/workspace.star", "workspace_get_absolute_path")
+
+
 def openssl_build(
         name,
         source_directory,
@@ -32,7 +35,7 @@ def openssl_build(
     build_rule_name = "{}_build".format(name)
     install_rule_name = "{}_install".format(name)
     build_directory = "build/{}".format(name)
-    workspace = info.get_absolute_path_to_workspace()
+    workspace = workspace_get_absolute_path()
     cpu_count = info.get_cpu_count()
 
     run_add_exec(
