@@ -8,7 +8,7 @@ load(
     "run_add_target"
 )
 
-load("//@star/sdk/star/workspace.star", "workspace_get_absolute_path")
+load("//@star/sdk/star/ws.star", "workspace_get_absolute_path")
 
 
 def openssl_build(
