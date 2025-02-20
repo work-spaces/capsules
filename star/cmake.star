@@ -51,7 +51,7 @@ def cmake_add_build_install_publish(
             SUBMODULE_RULE,
             command = "git",
             args = ["submodule", "update", "--init", "--recursive"],
-            working_directory = EFFECTIVE_SOURCE_DIRECTORY,
+            working_directory = "//{}".format(EFFECTIVE_SOURCE_DIRECTORY),
         )
         SUBMODULE_DEPS = [SUBMODULE_RULE]
 
